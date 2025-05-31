@@ -1,0 +1,42 @@
+2025-05-31 20:38:24,127 - ERROR - Command execution failed
+Traceback (most recent call last):
+  File "C:\Users\Prateek\AppData\Local\Programs\Python\Python310\lib\site-packages\pptx\opc\serialized.py", line 81, in _write
+    self._write_content_types_stream(phys_writer)
+  File "C:\Users\Prateek\AppData\Local\Programs\Python\Python310\lib\site-packages\pptx\opc\serialized.py", line 91, in _write_content_types_stream
+    phys_writer.write(
+  File "C:\Users\Prateek\AppData\Local\Programs\Python\Python310\lib\site-packages\pptx\opc\serialized.py", line 220, in write
+    self._zipf.writestr(pack_uri.membername, blob)
+  File "C:\Users\Prateek\AppData\Local\Programs\Python\Python310\lib\site-packages\pptx\util.py", line 215, in __get__
+    value = self._fget(obj)
+  File "C:\Users\Prateek\AppData\Local\Programs\Python\Python310\lib\site-packages\pptx\opc\serialized.py", line 225, in _zipf
+    return zipfile.ZipFile(self._pkg_file, "w", compression=zipfile.ZIP_DEFLATED)
+  File "C:\Users\Prateek\AppData\Local\Programs\Python\Python310\lib\zipfile.py", line 1240, in __init__
+    self.fp = io.open(file, filemode)
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\Prateek\\AppData\\Local\\Temp\\tmp5inpp4un.pptx'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Prateek\lmhu\core\agent.py", line 13, in execute_commands
+    return generate_ppt_doc(command_json)
+  File "C:\Users\Prateek\lmhu\core\generator_ppt.py", line 696, in generate_ppt_doc
+    prs.save(temp_filepath)
+  File "C:\Users\Prateek\AppData\Local\Programs\Python\Python310\lib\site-packages\pptx\presentation.py", line 39, in save
+    self.part.save(file)
+  File "C:\Users\Prateek\AppData\Local\Programs\Python\Python310\lib\site-packages\pptx\parts\presentation.py", line 107, in save
+    self.package.save(path_or_stream)
+  File "C:\Users\Prateek\AppData\Local\Programs\Python\Python310\lib\site-packages\pptx\opc\package.py", line 153, in save
+    PackageWriter.write(pkg_file, self._rels, tuple(self.iter_parts()))
+  File "C:\Users\Prateek\AppData\Local\Programs\Python\Python310\lib\site-packages\pptx\opc\serialized.py", line 76, in write
+    cls(pkg_file, pkg_rels, parts)._write()
+  File "C:\Users\Prateek\AppData\Local\Programs\Python\Python310\lib\site-packages\pptx\opc\serialized.py", line 80, in _write
+    with _PhysPkgWriter.factory(self._pkg_file) as phys_writer:
+  File "C:\Users\Prateek\AppData\Local\Programs\Python\Python310\lib\site-packages\pptx\opc\serialized.py", line 216, in __exit__
+    self._zipf.close()
+  File "C:\Users\Prateek\AppData\Local\Programs\Python\Python310\lib\site-packages\pptx\util.py", line 215, in __get__
+    value = self._fget(obj)
+  File "C:\Users\Prateek\AppData\Local\Programs\Python\Python310\lib\site-packages\pptx\opc\serialized.py", line 225, in _zipf
+    return zipfile.ZipFile(self._pkg_file, "w", compression=zipfile.ZIP_DEFLATED)
+  File "C:\Users\Prateek\AppData\Local\Programs\Python\Python310\lib\zipfile.py", line 1240, in __init__
+    self.fp = io.open(file, filemode)
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\Prateek\\AppData\\Local\\Temp\\tmp5inpp4un.pptx'

@@ -1,0 +1,79 @@
+{
+  "prompt": "Build the propere react native document of 10 pages",
+  "commands": {
+    "title": "React Native Development: A Comprehensive Guide",
+    "style": "Professional",
+    "formatting": {
+      "font": "Calibri",
+      "page_size": "A4",
+      "text_alignment": "Left",
+      "include_toc": true,
+      "include_page_numbers": true,
+      "include_header": true,
+      "include_footer": true
+    },
+    "sections": [
+      {
+        "heading": "Introduction to React Native",
+        "content": "React Native is a JavaScript framework for writing real, natively rendering mobile applications for iOS and Android. It's based on React, Facebook's JavaScript library for building user interfaces, but instead of targeting the browser, it targets mobile platforms. This means you can use your existing JavaScript knowledge to build cross-platform mobile apps that look and feel truly native.",
+        "level": 1
+      },
+      {
+        "heading": "Why Choose React Native?",
+        "content": "React Native offers several advantages over traditional native development and other cross-platform frameworks:\n\n*   **Code Reusability:** Write once, deploy on both iOS and Android.\n*   **Native Performance:** Components compile to native UI, resulting in near-native performance.\n*   **Hot Reloading:** See changes instantly without recompiling the app.\n*   **Large Community:** Benefit from a vast ecosystem of libraries and support.\n*   **Faster Development:** Shorter development cycles due to code sharing and hot reloading.",
+        "level": 2
+      },
+      {
+        "heading": "Setting Up Your Development Environment",
+        "content": "Before you can start building React Native apps, you'll need to set up your development environment. This includes installing Node.js, a package manager like npm or Yarn, the React Native CLI, and Xcode (for iOS development) or Android Studio (for Android development).  Detailed instructions for each platform can be found on the React Native official documentation.",
+        "level": 1
+      },
+      {
+        "heading": "Prerequisites:",
+        "content": "*   Node.js (version 16 or higher)\n*   npm or Yarn\n*   JDK (Java Development Kit) for Android development\n*   Android Studio (for Android development)\n*   Xcode (for iOS development on macOS)",
+        "level": 2
+      },
+      {
+        "heading": "Creating Your First React Native Project",
+        "content": "Once your environment is set up, you can create a new React Native project using the React Native CLI.  Open your terminal and run the following command:\n\n`npx react-native init MyAwesomeApp`\n\nThis will create a new directory called `MyAwesomeApp` containing a basic React Native project. Navigate into the directory using `cd MyAwesomeApp` and then run `npx react-native run-ios` or `npx react-native run-android` to run your app on the respective platform emulator or connected device.",
+        "level": 1
+      },
+      {
+        "heading": "Understanding React Native Components",
+        "content": "React Native apps are built using components, which are reusable building blocks of UI. React Native provides a set of core components such as `View`, `Text`, `Image`, `TextInput`, `Button`, and `ScrollView`. You can also create your own custom components to encapsulate complex UI logic.",
+        "level": 1
+      },
+      {
+        "heading": "Core Components:",
+        "content": "*   **View:**  The most fundamental building block for UI.  Similar to a `<div>` in HTML.\n*   **Text:**  Used to display text.\n*   **Image:**  Used to display images.\n*   **TextInput:**  A component for capturing user input.\n*   **Button:**  A clickable button.\n*   **ScrollView:**  A container that allows scrolling.",
+        "level": 2
+      },
+      {
+        "heading": "Styling React Native Components",
+        "content": "React Native uses JavaScript to style components.  You can use inline styles or create separate stylesheets.  React Native's styling system is similar to CSS, but with some differences.  Styles are applied using the `style` prop on each component. React Native uses Flexbox for layout, making it easy to create responsive and adaptable UIs.",
+        "level": 1
+      },
+      {
+        "heading": "Navigation in React Native",
+        "content": "Navigation is a crucial aspect of any mobile app.  React Native doesn't come with built-in navigation, so you'll need to use a third-party library like `react-navigation` or `react-native-navigation`.  These libraries provide various navigation patterns such as stack navigation, tab navigation, and drawer navigation.",
+        "level": 1
+      },
+      {
+        "heading": "State Management",
+        "content": "As your app grows in complexity, managing state becomes essential.  React Native offers several options for state management, including:\n\n*   **useState and useContext:**  Built-in React Hooks for managing local and global state.\n*   **Redux:**  A popular state management library for complex applications.\n*   **MobX:**  Another state management library that uses reactive programming.",
+        "level": 1
+      },
+      {
+        "heading": "Working with APIs",
+        "content": "React Native applications often need to fetch data from external APIs. You can use the built-in `fetch` API or a library like `axios` to make HTTP requests.  Remember to handle errors and loading states appropriately when working with asynchronous data.",
+        "level": 1
+      },
+      {
+        "heading": "Deployment",
+        "content": "Once your app is complete, you'll need to build and deploy it to the respective app stores. For iOS, you'll use Xcode to create an archive and submit it to the App Store. For Android, you'll use Android Studio to generate a signed APK or AAB file and upload it to the Google Play Store. Follow the official documentation of each platform for detailed instructions.",
+        "level": 1
+      }
+    ]
+  },
+  "output_file": "C:\\Users\\Prateek/Downloads\\React_Native_Development_A_Com_20250601_0141.docx"
+}

@@ -1,0 +1,114 @@
+{
+  "prompt": "Build a proper react native documentation that crried table of content too",
+  "commands": {
+    "title": "React Native Documentation",
+    "style": "Professional",
+    "formatting": {
+      "font": "Arial",
+      "page_size": "A4",
+      "text_alignment": "Right",
+      "include_toc": true,
+      "include_page_numbers": true,
+      "include_header": true,
+      "include_footer": true
+    },
+    "sections": [
+      {
+        "heading": "Table of Contents",
+        "content": "This section will be automatically populated by the document generation software.",
+        "level": 0
+      },
+      {
+        "heading": "Introduction to React Native",
+        "content": "React Native is a JavaScript framework for writing real, natively rendering mobile applications for iOS and Android. It's based on React, Facebook's JavaScript library for building user interfaces, but instead of targeting the browser, it targets mobile platforms. This means you can use your existing JavaScript knowledge to build mobile apps that look and feel truly native, without learning Objective-C, Swift, or Java.",
+        "level": 1
+      },
+      {
+        "heading": "Why React Native?",
+        "content": "React Native offers several advantages over traditional native development:\n\n*   **Code Reusability:** Write once, run on both iOS and Android.\n*   **Faster Development:** Hot reloading allows you to see changes instantly without rebuilding the app.\n*   **Large Community:** A vibrant community provides ample support, libraries, and resources.\n*   **Native Performance:** Components render to native UI, resulting in a smooth, native-like experience.\n*   **JavaScript Familiarity:** Leverage existing JavaScript skills and knowledge.",
+        "level": 2
+      },
+      {
+        "heading": "Setting Up Your Development Environment",
+        "content": "Before you start building React Native apps, you'll need to set up your development environment. This involves installing Node.js, a package manager like npm or Yarn, the React Native CLI, and the necessary SDKs for iOS and Android development.",
+        "level": 1
+      },
+      {
+        "heading": "Installing Node.js and npm/Yarn",
+        "content": "Node.js is a JavaScript runtime environment that allows you to run JavaScript code outside of a web browser. npm (Node Package Manager) and Yarn are package managers that help you install and manage dependencies for your React Native projects. Download and install Node.js from the official website (nodejs.org). npm typically comes bundled with Node.js. Alternatively, you can install Yarn globally using npm: `npm install -g yarn`.",
+        "level": 2
+      },
+      {
+        "heading": "Installing the React Native CLI",
+        "content": "The React Native CLI (Command Line Interface) is a tool that allows you to create, build, and run React Native projects. Install it globally using npm or Yarn: `npm install -g react-native-cli` or `yarn global add react-native-cli`.",
+        "level": 2
+      },
+      {
+        "heading": "Configuring Android Development Environment",
+        "content": "To develop for Android, you'll need to install the Android SDK and configure the `ANDROID_HOME` environment variable.  Download Android Studio and follow the setup instructions.  Make sure to install the appropriate Android SDK version.  Set the `ANDROID_HOME` environment variable to the location of your Android SDK.",
+        "level": 2
+      },
+      {
+        "heading": "Configuring iOS Development Environment",
+        "content": "To develop for iOS, you'll need to install Xcode from the Mac App Store. Xcode includes the iOS SDK and simulators for testing your apps.",
+        "level": 2
+      },
+      {
+        "heading": "Creating Your First React Native Project",
+        "content": "Once you have set up your development environment, you can create a new React Native project using the following command: `react-native init MyAwesomeApp`. This will create a new directory named `MyAwesomeApp` with all the necessary files and dependencies for your project.",
+        "level": 1
+      },
+      {
+        "heading": "Running Your App",
+        "content": "To run your app on iOS, navigate to the project directory and run `react-native run-ios`. To run your app on Android, run `react-native run-android`. Make sure you have a simulator or emulator running or a physical device connected to your computer.",
+        "level": 1
+      },
+      {
+        "heading": "Core Components and APIs",
+        "content": "React Native provides a set of core components and APIs that you can use to build your user interface and interact with device features. Some of the most commonly used components include `View`, `Text`, `Image`, `TextInput`, `ScrollView`, and `Button`.  Key APIs include `Alert`, `AsyncStorage`, `Dimensions`, and `Platform`.",
+        "level": 1
+      },
+      {
+        "heading": "Styling React Native Components",
+        "content": "React Native uses a style system similar to CSS, but with some differences. Styles are defined using JavaScript objects, and you can use properties like `backgroundColor`, `color`, `fontSize`, and `margin` to style your components. React Native also supports Flexbox for layout.",
+        "level": 1
+      },
+      {
+        "heading": "Handling User Input",
+        "content": "React Native provides components like `TextInput` for handling user input. You can use the `onChangeText` prop to listen for changes to the input field and update the component's state accordingly.",
+        "level": 1
+      },
+      {
+        "heading": "Navigation",
+        "content": "Navigation is a crucial part of any mobile app. React Navigation is a popular library that provides a set of tools for implementing different navigation patterns, such as stack navigation, tab navigation, and drawer navigation.",
+        "level": 1
+      },
+      {
+        "heading": "Fetching Data",
+        "content": "React Native provides the `fetch` API for making network requests. You can use `fetch` to retrieve data from APIs and display it in your app.",
+        "level": 1
+      },
+      {
+        "heading": "State Management",
+        "content": "State management is essential for building complex React Native applications.  Libraries like Redux and MobX can help manage application state effectively.  Context API is also a viable option for simpler applications.",
+        "level": 1
+      },
+      {
+        "heading": "Testing",
+        "content": "Testing is an important part of the development process.  Jest is a popular JavaScript testing framework that can be used with React Native.  Enzyme is a testing utility that makes it easier to test React components.",
+        "level": 1
+      },
+      {
+        "heading": "Deployment",
+        "content": "Deploying a React Native app involves building the app for iOS and Android and submitting it to the respective app stores (App Store and Google Play Store).  This process requires creating provisioning profiles and certificates for iOS and generating a signed APK or AAB file for Android.",
+        "level": 1
+      },
+      {
+        "heading": "Conclusion",
+        "content": "React Native is a powerful framework for building cross-platform mobile applications. By leveraging JavaScript and React, developers can create native-like experiences for iOS and Android with a single codebase.",
+        "level": 1
+      }
+    ]
+  },
+  "output_file": "C:\\Users\\Prateek/Downloads\\React_Native_Documentation_20250601_0114.docx"
+}

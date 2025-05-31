@@ -1,0 +1,205 @@
+{
+  "prompt": "Build PPT for global warming",
+  "commands": {
+    "title": "Global Warming: A World in Transition",
+    "subtitle": "Understanding the Causes, Impacts, and Solutions",
+    "theme": "Creative",
+    "font": "Calibri",
+    "color_scheme": "Purple",
+    "include_toc": false,
+    "include_notes": false,
+    "slides": [
+      {
+        "title": "The Earth is Warming: An Urgent Call",
+        "content": "Global warming refers to the long-term heating of Earth's climate system observed since the pre-industrial period (between 1850 and 1900) due to human activities, primarily fossil fuel burning, which increases heat-trapping greenhouse gas levels in Earth's atmosphere.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Abstract shape of a melting iceberg in shades of blue and white, placed in the bottom right corner."
+            },
+            {
+              "type": "transition",
+              "description": "Fade transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Culprit: Greenhouse Gas Emissions",
+        "content": "The primary driver of global warming is the increase in greenhouse gas concentrations in the atmosphere. These gases, such as carbon dioxide (CO2), methane (CH4), and nitrous oxide (N2O), trap heat and prevent it from escaping into space.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Stylized graph showing the upward trend of CO2 emissions over time, using a purple line."
+            },
+            {
+              "type": "transition",
+              "description": "Push transition (from left)"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Sources of Greenhouse Gases: Where are They Coming From?",
+        "content": "Major sources include:\n- Burning fossil fuels for electricity, heat, and transportation\n- Deforestation and land use changes\n- Industrial processes\n- Agriculture",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Icons representing each source (factory, forest, car, farm) arranged creatively around the text."
+            },
+            {
+              "type": "transition",
+              "description": "Wipe transition (from right)"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Impacts of Global Warming: Feeling the Heat",
+        "content": "The consequences of global warming are far-reaching and include:\n- Rising global temperatures\n- More frequent and intense heatwaves\n- Changes in precipitation patterns\n- Rising sea levels\n- Increased ocean acidity\n- More extreme weather events",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Collage of images depicting the different impacts (floods, droughts, melting glaciers) arranged in a dynamic pattern."
+            },
+            {
+              "type": "transition",
+              "description": "Split transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Rising Sea Levels: A Coastal Crisis",
+        "content": "Melting glaciers and ice sheets, combined with thermal expansion of water, are causing sea levels to rise. This threatens coastal communities, ecosystems, and infrastructure.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Illustration of a coastal city partially submerged by rising sea levels, using watercolor style."
+            },
+            {
+              "type": "transition",
+              "description": "Reveal transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Extreme Weather Events: The New Normal?",
+        "content": "Global warming is contributing to more frequent and intense extreme weather events, such as hurricanes, droughts, floods, and wildfires.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "A stylized image of a tornado, using shades of purple and gray, placed on the left side of the slide."
+            },
+            {
+              "type": "transition",
+              "description": "Random Bars transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Solutions: A Path Towards Sustainability",
+        "content": "Addressing global warming requires a multifaceted approach:\n- Reducing greenhouse gas emissions\n- Transitioning to renewable energy sources\n- Improving energy efficiency\n- Protecting and restoring forests\n- Adapting to the impacts of climate change",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Icons representing each solution (solar panel, wind turbine, tree, lightbulb) arranged in a circular pattern."
+            },
+            {
+              "type": "transition",
+              "description": "Shape transition (circle)"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Renewable Energy: Powering the Future",
+        "content": "Investing in renewable energy sources like solar, wind, hydro, and geothermal is crucial for reducing our reliance on fossil fuels.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Image of a wind turbine farm at sunset, with a purple filter applied."
+            },
+            {
+              "type": "transition",
+              "description": "Uncover transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Individual Actions: Every Effort Counts",
+        "content": "Individuals can make a difference by:\n- Reducing their carbon footprint\n- Conserving energy\n- Eating less meat\n- Supporting sustainable businesses\n- Advocating for climate action",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Hand-drawn style icons representing each action (walking, recycling, eating vegetables) arranged around the text."
+            },
+            {
+              "type": "transition",
+              "description": "Zoom transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "A Sustainable Future: Our Shared Responsibility",
+        "content": "Addressing global warming is a shared responsibility that requires collective action from governments, businesses, and individuals. By working together, we can create a sustainable future for all.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Image of people holding hands around the Earth, stylized in purple tones."
+            },
+            {
+              "type": "transition",
+              "description": "Morph transition"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "output_file": "C:\\Users\\Prateek/Downloads\\Global_Warming_A_World_in_Tran_20250531_2053.pptx"
+}

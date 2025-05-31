@@ -1,0 +1,9 @@
+2025-06-01 00:38:50,176 - ERROR - Command execution failed
+Traceback (most recent call last):
+  File "C:\Users\Prateek\lmhu\core\agent.py", line 11, in execute_commands
+    return generate_word_doc(command_json)
+  File "C:\Users\Prateek\lmhu\core\generator_word.py", line 212, in generate_word_doc
+    _apply_formatting(doc, data.get("formatting", {}))
+  File "C:\Users\Prateek\lmhu\core\generator_word.py", line 162, in _apply_formatting
+    run.add_field('PAGE')
+AttributeError: 'Run' object has no attribute 'add_field'

@@ -1,0 +1,174 @@
+{
+  "prompt": "Build the complete 10 pages complete react natoive documentation with proper TOC.",
+  "commands": {
+    "title": "React Native Documentation",
+    "style": "Business",
+    "formatting": {
+      "font": "Georgia",
+      "page_size": "A4",
+      "text_alignment": "Center",
+      "include_toc": true,
+      "include_page_numbers": true,
+      "include_header": true,
+      "include_footer": true
+    },
+    "sections": [
+      {
+        "heading": "Table of Contents",
+        "content": "Generated Table of Contents will be here.",
+        "level": 0
+      },
+      {
+        "heading": "Introduction to React Native",
+        "content": "React Native is a JavaScript framework for writing real, natively rendering mobile applications for iOS and Android. It's based on React, Facebook's JavaScript library for building user interfaces, but instead of targeting the browser, it targets mobile platforms. This means you can use your existing JavaScript knowledge to build mobile apps that look and feel truly native.",
+        "level": 1
+      },
+      {
+        "heading": "1.1. Why React Native?",
+        "content": "React Native offers several advantages over traditional native development and other cross-platform solutions:\n\n*   **Code Reusability:** Write once, run on both iOS and Android.\n*   **Faster Development:** Hot reloading allows you to see changes instantly without recompiling.\n*   **Native Performance:** Components render to native UI elements, resulting in excellent performance.\n*   **Large Community:** A vibrant and active community provides ample resources and support.\n*   **JavaScript Knowledge:** Leverage your existing JavaScript skills.",
+        "level": 2
+      },
+      {
+        "heading": "1.2. Prerequisites",
+        "content": "Before you begin, you'll need the following:\n\n*   **Node.js and npm:** Install Node.js and npm (Node Package Manager) from the official Node.js website.\n*   **Java Development Kit (JDK):** Required for Android development. Download and install the latest JDK.\n*   **Android Studio:** Needed for Android development. Download and install Android Studio and configure the Android SDK.\n*   **Xcode:** Required for iOS development. Install Xcode from the Mac App Store.\n*   **Watchman:** A file watching service that React Native uses.  Install using `brew install watchman` (macOS).",
+        "level": 2
+      },
+      {
+        "heading": "Setting Up Your Development Environment",
+        "content": "Setting up your development environment can be a bit tricky, but follow these steps carefully to avoid common issues.",
+        "level": 1
+      },
+      {
+        "heading": "2.1. Android Setup",
+        "content": "1.  **Install Android Studio:** Download and install Android Studio from the official website.\n2.  **Configure Android SDK:** Open Android Studio, go to `Configure > SDK Manager`, and install the necessary SDK platforms and build tools.\n3.  **Set `ANDROID_HOME` Environment Variable:** Add the `ANDROID_HOME` environment variable pointing to your Android SDK location.  For example: `export ANDROID_HOME=$HOME/Android/Sdk`.\n4.  **Add Platform Tools to Path:** Add the `platform-tools` and `tools` directories to your `PATH` environment variable.  For example: `export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools`.\n5.  **Create an Android Virtual Device (AVD):** Use the AVD Manager in Android Studio to create a virtual device for testing.",
+        "level": 2
+      },
+      {
+        "heading": "2.2. iOS Setup",
+        "content": "1.  **Install Xcode:** Download and install Xcode from the Mac App Store.\n2.  **Install Command Line Tools:** Open Xcode, go to `Xcode > Preferences > Locations`, and select the command line tools.\n3.  **Install CocoaPods:**  CocoaPods is a dependency manager for iOS projects. Install it using `sudo gem install cocoapods`.\n4.  **Install Homebrew:** Homebrew is a package manager for macOS. Install it using `/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"`\n5. **Install Watchman:** `brew install watchman`",
+        "level": 2
+      },
+      {
+        "heading": "Creating Your First React Native App",
+        "content": "Now that you have your environment set up, let's create your first React Native application.",
+        "level": 1
+      },
+      {
+        "heading": "3.1. Using `npx react-native init`",
+        "content": "The easiest way to create a new React Native project is using the `npx react-native init` command.  Open your terminal and run:\n\n```bash\nnpx react-native init AwesomeProject\ncd AwesomeProject\n```\n\nReplace `AwesomeProject` with the name of your project.",
+        "level": 2
+      },
+      {
+        "heading": "3.2. Running Your App",
+        "content": "To run your app on Android, run the following command:\n\n```bash\nnpx react-native run-android\n```\n\nTo run your app on iOS, run the following command:\n\n```bash\nnpx react-native run-ios\n```\n\nMake sure your emulator or connected device is running before executing these commands.",
+        "level": 2
+      },
+      {
+        "heading": "Understanding the Project Structure",
+        "content": "Let's take a look at the structure of a React Native project.",
+        "level": 1
+      },
+      {
+        "heading": "4.1. Key Files and Directories",
+        "content": "*   `android/`: Contains the Android-specific code for your application.\n*   `ios/`: Contains the iOS-specific code for your application.\n*   `index.js`: The entry point for your JavaScript code.\n*   `App.js`: The main component of your application.\n*   `package.json`: Contains the project's dependencies and scripts.\n*   `metro.config.js`: Configuration file for the Metro bundler.",
+        "level": 2
+      },
+      {
+        "heading": "Core Components",
+        "content": "React Native provides a set of core components that you can use to build your user interface.",
+        "level": 1
+      },
+      {
+        "heading": "5.1. View",
+        "content": "The most fundamental component for building a UI. It's a container that supports layout with Flexbox, style, touch handling, and accessibility controls.",
+        "level": 2
+      },
+      {
+        "heading": "5.2. Text",
+        "content": "A component for displaying text. Supports styling, nesting, and touch handling.",
+        "level": 2
+      },
+      {
+        "heading": "5.3. Image",
+        "content": "A component for displaying images. Supports local and remote images.",
+        "level": 2
+      },
+      {
+        "heading": "5.4. TextInput",
+        "content": "A component for allowing users to enter text.",
+        "level": 2
+      },
+      {
+        "heading": "5.5. Button",
+        "content": "A component for creating a simple button.",
+        "level": 2
+      },
+      {
+        "heading": "Styling with StyleSheets",
+        "content": "React Native uses JavaScript objects to define styles. You can use the `StyleSheet` API to create reusable styles.",
+        "level": 1
+      },
+      {
+        "heading": "6.1. Creating Styles",
+        "content": "```javascript\nimport { StyleSheet } from 'react-native';\n\nconst styles = StyleSheet.create({\n  container: {\n    flex: 1,\n    backgroundColor: '#fff',\n    alignItems: 'center',\n    justifyContent: 'center',\n  },\n  text: {\n    fontSize: 20,\n    fontWeight: 'bold',\n  },\n});\n\nexport default styles;\n```",
+        "level": 2
+      },
+      {
+        "heading": "6.2. Applying Styles",
+        "content": "```javascript\nimport React from 'react';\nimport { View, Text } from 'react-native';\nimport styles from './styles';\n\nconst MyComponent = () => {\n  return (\n    <View style={styles.container}>\n      <Text style={styles.text}>Hello, React Native!</Text>\n    </View>\n  );\n};\n\nexport default MyComponent;\n```",
+        "level": 2
+      },
+      {
+        "heading": "Handling User Input",
+        "content": "React Native provides components and APIs for handling user input, such as touch events and form submissions.",
+        "level": 1
+      },
+      {
+        "heading": "7.1. Touch Events",
+        "content": "Use the `Touchable` components (e.g., `TouchableOpacity`, `TouchableHighlight`) to detect touch events on components.",
+        "level": 2
+      },
+      {
+        "heading": "7.2. TextInput and Forms",
+        "content": "Use the `TextInput` component to capture user input.  Manage the state of the input using React's state management features.",
+        "level": 2
+      },
+      {
+        "heading": "Navigation",
+        "content": "React Native itself does not provide navigation APIs. You need to use third-party libraries like React Navigation or React Native Navigation.",
+        "level": 1
+      },
+      {
+        "heading": "8.1. React Navigation",
+        "content": "React Navigation is a popular library for implementing navigation in React Native apps.  It supports various navigation patterns, such as stack navigation, tab navigation, and drawer navigation.",
+        "level": 2
+      },
+      {
+        "heading": "Networking",
+        "content": "React Native provides the `fetch` API for making network requests.  It's similar to the `fetch` API in web browsers.",
+        "level": 1
+      },
+      {
+        "heading": "9.1. Using the `fetch` API",
+        "content": "```javascript\nfetch('https://api.example.com/data')\n  .then((response) => response.json())\n  .then((data) => {\n    console.log(data);\n  })\n  .catch((error) => {\n    console.error('Error:', error);\n  });\n```",
+        "level": 2
+      },
+      {
+        "heading": "Debugging",
+        "content": "React Native provides several tools for debugging your applications.",
+        "level": 1
+      },
+      {
+        "heading": "10.1. Chrome Developer Tools",
+        "content": "You can use Chrome Developer Tools to debug your JavaScript code. Enable debugging in the React Native developer menu.",
+        "level": 2
+      },
+      {
+        "heading": "10.2. React Native Debugger",
+        "content": "React Native Debugger is a standalone app that provides a more comprehensive debugging experience.",
+        "level": 2
+      }
+    ]
+  },
+  "output_file": "C:\\Users\\Prateek/Downloads\\React_Native_Documentation_20250601_0126.docx"
+}

@@ -1,0 +1,7 @@
+2025-05-31 00:23:06,146 - ERROR - Command execution failed
+Traceback (most recent call last):
+  File "C:\Users\Prateek\lmhu\core\agent.py", line 13, in execute_commands
+    return generate_ppt_doc(command_json)
+  File "C:\Users\Prateek\lmhu\core\generator_ppt.py", line 749, in generate_ppt_doc
+    _apply_comtypes_transitions(filepath, transition_effect, transition_duration)
+TypeError: _apply_comtypes_transitions() takes 2 positional arguments but 3 were given

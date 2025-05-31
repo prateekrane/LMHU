@@ -1,0 +1,11 @@
+2025-05-31 00:33:39,099 - ERROR - Command execution failed
+Traceback (most recent call last):
+  File "C:\Users\Prateek\lmhu\core\agent.py", line 13, in execute_commands
+    return generate_ppt_doc(command_json)
+  File "C:\Users\Prateek\lmhu\core\generator_ppt.py", line 685, in generate_ppt_doc
+    _apply_theme_elements(slide, theme_info, formatting, theme_colors, topic)
+  File "C:\Users\Prateek\lmhu\core\generator_ppt.py", line 444, in _apply_theme_elements
+    _add_chart(slide, chart_type, 5, 2, 4, 3, chart_data, theme_colors)
+  File "C:\Users\Prateek\lmhu\core\generator_ppt.py", line 264, in _add_chart
+    chart.chart_title.font.size = Pt(14)
+AttributeError: 'ChartTitle' object has no attribute 'font'

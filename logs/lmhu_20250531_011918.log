@@ -1,0 +1,11 @@
+2025-05-31 01:20:25,220 - ERROR - Command execution failed
+Traceback (most recent call last):
+  File "C:\Users\Prateek\lmhu\core\agent.py", line 13, in execute_commands
+    return generate_ppt_doc(command_json)
+  File "C:\Users\Prateek\lmhu\core\generator_ppt.py", line 669, in generate_ppt_doc
+    _apply_theme_elements(slide, theme_info, formatting, theme_colors, topic)
+  File "C:\Users\Prateek\lmhu\core\generator_ppt.py", line 444, in _apply_theme_elements
+    _add_chart(slide, chart_type, left, top, width, height, chart_data, theme_colors)
+  File "C:\Users\Prateek\lmhu\core\generator_ppt.py", line 239, in _add_chart
+    chart_data.categories = data.get("categories", ["Q1", "Q2", "Q3", "Q4"])
+AttributeError: 'NoneType' object has no attribute 'get'

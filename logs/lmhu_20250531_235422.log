@@ -1,0 +1,11 @@
+2025-05-31 23:55:34,822 - ERROR - Command execution failed
+Traceback (most recent call last):
+  File "C:\Users\Prateek\lmhu\core\agent.py", line 13, in execute_commands
+    return generate_ppt_doc(command_json)
+  File "C:\Users\Prateek\lmhu\core\generator_ppt.py", line 594, in generate_ppt_doc
+    _apply_text_box_animation_with_comtypes(temp_filepath, 0, 0, "bounce")
+  File "C:\Users\Prateek\lmhu\core\generator_ppt.py", line 536, in _apply_text_box_animation_with_comtypes
+    animation.EntryEffect = effect_number
+  File "C:\Users\Prateek\AppData\Local\Programs\Python\Python310\lib\site-packages\comtypes\_post_coinit\_cominterface_meta_patcher.py", line 32, in __setattr__
+    object.__setattr__(self, self.__map_case__.get(name.lower(), name), value)
+_ctypes.COMError: (-2147024809, 'The parameter is incorrect.', ('AnimationSettings (unknown member) : Invalid enumeration value.', 'Microsoft PowerPoint', '', 0, None))

@@ -1,0 +1,169 @@
+{
+  "prompt": "Build PPT based on global warming",
+  "commands": {
+    "title": "Global Warming: Understanding the Crisis and Taking Action",
+    "subtitle": "A Comprehensive Overview",
+    "theme": "Professional",
+    "font": "Calibri",
+    "color_scheme": "Green",
+    "include_toc": false,
+    "include_notes": false,
+    "slides": [
+      {
+        "title": "Introduction: What is Global Warming?",
+        "content": "Global warming refers to the long-term increase in Earth's average surface temperature. This is primarily due to human activities, mainly the burning of fossil fuels, which releases greenhouse gases into the atmosphere.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Simple rectangle shape behind the title for emphasis."
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Greenhouse Effect: How it Works",
+        "content": "Greenhouse gases trap heat in the atmosphere, preventing it from escaping back into space. This natural process keeps the Earth warm enough to support life, but increased concentrations of these gases are leading to excessive warming.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Arrow diagram illustrating the greenhouse effect."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Greenhouse Gases",
+        "content": "The most significant greenhouse gases include:\n\n*   Carbon Dioxide (CO2)\n*   Methane (CH4)\n*   Nitrous Oxide (N2O)\n*   Fluorinated Gases",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Simple bullet points with a green checkmark icon."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Causes of Global Warming: Human Activities",
+        "content": "The primary drivers of global warming are:\n\n*   Burning Fossil Fuels (Coal, Oil, Gas)\n*   Deforestation\n*   Industrial Processes\n*   Agriculture",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Simple bullet points with a green arrow icon."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Evidence of Global Warming",
+        "content": "Observable indicators of global warming include:\n\n*   Rising Global Temperatures\n*   Melting Glaciers and Ice Sheets\n*   Sea Level Rise\n*   Changes in Precipitation Patterns\n*   More Extreme Weather Events",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Simple bullet points with a green circle icon."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Impacts of Global Warming: Environmental Consequences",
+        "content": "Global warming is causing a range of environmental problems, including:\n\n*   Habitat Loss and Species Extinction\n*   Ocean Acidification\n*   Increased Frequency and Intensity of Natural Disasters",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Simple bullet points with a leaf icon."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Impacts of Global Warming: Social and Economic Consequences",
+        "content": "Global warming also poses significant social and economic challenges, such as:\n\n*   Food and Water Scarcity\n*   Displacement and Migration\n*   Economic Losses from Extreme Weather",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Simple bullet points with a world icon."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Mitigation Strategies: Reducing Greenhouse Gas Emissions",
+        "content": "Key strategies for mitigating global warming include:\n\n*   Transitioning to Renewable Energy Sources\n*   Improving Energy Efficiency\n*   Reducing Deforestation\n*   Adopting Sustainable Agricultural Practices",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Simple bullet points with a lightbulb icon."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Adaptation Strategies: Preparing for the Impacts",
+        "content": "Adaptation measures are necessary to cope with the unavoidable impacts of global warming, such as:\n\n*   Building Resilient Infrastructure\n*   Developing Drought-Resistant Crops\n*   Implementing Early Warning Systems for Extreme Weather",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Simple bullet points with a shield icon."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Conclusion: A Call to Action",
+        "content": "Global warming is a serious threat that requires urgent action from individuals, governments, and businesses. By working together, we can mitigate its impacts and create a more sustainable future.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Simple rectangle shape behind the title for emphasis."
+            },
+            {
+              "type": "transition",
+              "description": "Fade transition to the next slide."
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "output_file": "C:\\Users\\Prateek/Downloads\\Global_Warming_Understanding_t_20250531_0146.pptx"
+}

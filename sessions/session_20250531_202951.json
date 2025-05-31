@@ -1,0 +1,205 @@
+{
+  "prompt": "build PPT for global warming",
+  "commands": {
+    "title": "Global Warming: Understanding the Crisis and Taking Action",
+    "subtitle": "A Call to Climate Action",
+    "theme": "Creative",
+    "font": "Calibri",
+    "color_scheme": "Default",
+    "include_toc": true,
+    "include_notes": true,
+    "slides": [
+      {
+        "title": "Title Slide: The Earth in Crisis",
+        "content": "Global Warming: Understanding the Crisis and Taking Action",
+        "notes": "Welcome everyone. Today, we'll delve into the urgent issue of global warming, exploring its causes, consequences, and potential solutions.",
+        "formatting": {
+          "title_font_size": 60,
+          "content_font_size": 36,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Image of a melting globe in the background, semi-transparent"
+            },
+            {
+              "type": "transition",
+              "description": "Morph transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Table of Contents",
+        "content": "1. Introduction to Global Warming\n2. Causes of Global Warming\n3. Evidence of Global Warming\n4. Impacts on the Environment\n5. Impacts on Human Society\n6. Mitigation Strategies\n7. Adaptation Strategies\n8. The Role of Technology\n9. Call to Action\n10. Conclusion",
+        "notes": "This presentation will cover a range of topics from the science behind global warming to the actions we can take to address it. We will examine both mitigation and adaptation strategies and explore the potential of technology in combating climate change.",
+        "formatting": {
+          "title_font_size": 48,
+          "content_font_size": 32,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Stylized drawing of a tree with interconnected roots representing the topics."
+            },
+            {
+              "type": "transition",
+              "description": "Push transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Introduction to Global Warming",
+        "content": "Global warming refers to the long-term heating of Earth's climate system observed since the pre-industrial period (between 1850 and 1900) due to human activities, primarily fossil fuel burning, which increases heat-trapping greenhouse gas levels in Earth's atmosphere.",
+        "notes": "Define global warming clearly. Emphasize the role of human activities, particularly the burning of fossil fuels. Note the long-term trend.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Arrow pointing upwards, representing rising temperatures."
+            },
+            {
+              "type": "transition",
+              "description": "Fade transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Causes of Global Warming",
+        "content": "The primary cause is the increase in greenhouse gases:\n*   Carbon Dioxide (CO2)\n*   Methane (CH4)\n*   Nitrous Oxide (N2O)\n\nThese gases trap heat in the atmosphere, leading to a gradual warming of the planet.",
+        "notes": "Explain the greenhouse effect in simple terms. List the major greenhouse gases and their sources.  Mention deforestation as a contributing factor.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Drawing of the greenhouse effect, showing sunlight entering and heat being trapped."
+            },
+            {
+              "type": "transition",
+              "description": "Wipe transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Evidence of Global Warming",
+        "content": "Observable evidence includes:\n*   Rising Global Temperatures\n*   Melting Glaciers and Ice Sheets\n*   Rising Sea Levels\n*   Changes in Precipitation Patterns\n*   More Frequent Extreme Weather Events",
+        "notes": "Present concrete evidence of global warming. Show data on temperature increases, ice melt, and sea level rise.  Give examples of extreme weather events linked to climate change.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Chart showing global temperature increase over time."
+            },
+            {
+              "type": "transition",
+              "description": "Split transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Impacts on the Environment",
+        "content": "*   Loss of Biodiversity\n*   Ocean Acidification\n*   Coral Reef Bleaching\n*   Changes in Ecosystems\n*   Increased Wildfires",
+        "notes": "Discuss the devastating effects of global warming on the environment. Highlight the vulnerability of ecosystems and species.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Images of dying coral reefs and endangered species."
+            },
+            {
+              "type": "transition",
+              "description": "Reveal transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Impacts on Human Society",
+        "content": "*   Food Security Issues\n*   Water Scarcity\n*   Increased Displacement and Migration\n*   Health Problems (heatstroke, respiratory illnesses)\n*   Economic Losses",
+        "notes": "Explain how global warming affects human societies, particularly vulnerable populations. Discuss the social, economic, and health consequences.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Image depicting drought-stricken land and displaced people."
+            },
+            {
+              "type": "transition",
+              "description": "Cover transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Mitigation Strategies",
+        "content": "*   Reducing Greenhouse Gas Emissions\n*   Transitioning to Renewable Energy Sources (solar, wind, hydro)\n*   Improving Energy Efficiency\n*   Reforestation and Afforestation\n*   Carbon Capture and Storage",
+        "notes": "Describe actions to reduce greenhouse gas emissions and slow down global warming.  Focus on renewable energy, energy efficiency, and carbon sequestration.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Icons representing renewable energy sources."
+            },
+            {
+              "type": "transition",
+              "description": "Flash transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Adaptation Strategies",
+        "content": "*   Developing Drought-Resistant Crops\n*   Building Flood Defenses\n*   Improving Water Management\n*   Relocating Communities at Risk\n*   Strengthening Public Health Systems",
+        "notes": "Discuss strategies to cope with the unavoidable impacts of climate change. Emphasize the importance of adaptation for vulnerable communities.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Image of a flood barrier or drought-resistant crops."
+            },
+            {
+              "type": "transition",
+              "description": "Ferris Wheel transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Call to Action: What Can You Do?",
+        "content": "*   Reduce Your Carbon Footprint\n*   Support Sustainable Businesses\n*   Advocate for Climate Action\n*   Educate Others\n*   Make Informed Choices",
+        "notes": "Inspire the audience to take action. Provide practical tips and encourage them to become climate advocates.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Image of people working together to protect the environment."
+            },
+            {
+              "type": "transition",
+              "description": "Morph transition"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "output_file": "C:\\Users\\Prateek/Downloads\\Global_Warming_Understanding_t_20250531_2031.pptx"
+}

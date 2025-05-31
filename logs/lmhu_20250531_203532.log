@@ -1,0 +1,11 @@
+2025-05-31 20:36:06,169 - ERROR - Command execution failed
+Traceback (most recent call last):
+  File "C:\Users\Prateek\lmhu\core\agent.py", line 13, in execute_commands
+    return generate_ppt_doc(command_json)
+  File "C:\Users\Prateek\lmhu\core\generator_ppt.py", line 703, in generate_ppt_doc
+    _apply_text_box_animation_with_comtypes(temp_filepath, idx + 1, 0, title_anim)
+  File "C:\Users\Prateek\lmhu\core\generator_ppt.py", line 520, in _apply_text_box_animation_with_comtypes
+    _apply_text_box_animation_with_comtypes.powerpoint.Visible = False  # Make it invisible
+  File "C:\Users\Prateek\AppData\Local\Programs\Python\Python310\lib\site-packages\comtypes\_post_coinit\_cominterface_meta_patcher.py", line 32, in __setattr__
+    object.__setattr__(self, self.__map_case__.get(name.lower(), name), value)
+_ctypes.COMError: (-2147188160, None, ('Application (unknown member) : Invalid request.  Hiding the application window is not allowed.', 'Microsoft PowerPoint', '', 0, None))

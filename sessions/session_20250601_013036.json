@@ -1,0 +1,149 @@
+{
+  "prompt": "Build a proper react native doxumentation of 10pages",
+  "commands": {
+    "title": "React Native Documentation",
+    "style": "Professional",
+    "formatting": {
+      "font": "Georgia",
+      "page_size": "A4",
+      "text_alignment": "Left",
+      "include_toc": true,
+      "include_page_numbers": true,
+      "include_header": true,
+      "include_footer": true
+    },
+    "sections": [
+      {
+        "heading": "Table of Contents",
+        "content": "This table of contents is dynamically generated.",
+        "level": 0
+      },
+      {
+        "heading": "Introduction to React Native",
+        "content": "React Native is a JavaScript framework for writing real, natively rendering mobile applications for iOS and Android. It's based on React, Facebook's JavaScript library for building user interfaces, but instead of targeting the browser, it targets mobile platforms. This allows developers to build cross-platform mobile apps with a single codebase, leveraging their existing JavaScript skills.",
+        "level": 1
+      },
+      {
+        "heading": "Why React Native?",
+        "content": "React Native offers several advantages over traditional native development and other cross-platform solutions:\n\n*   **Code Reusability:** Write once, deploy on both iOS and Android.\n*   **Faster Development:** Hot reloading allows for instant updates without recompiling.\n*   **Native Performance:** Components render to native UI, providing a seamless user experience.\n*   **Large Community:** A vast ecosystem of libraries and support from a vibrant community.\n*   **Learn Once, Write Anywhere:** Leveraging existing React knowledge reduces the learning curve.",
+        "level": 2
+      },
+      {
+        "heading": "Setting Up Your Development Environment",
+        "content": "Before you start building React Native apps, you need to set up your development environment. This involves installing Node.js, a package manager (npm or yarn), and the React Native CLI. You'll also need to install either Xcode (for iOS development) or Android Studio (for Android development).",
+        "level": 1
+      },
+      {
+        "heading": "Installing Node.js and npm/yarn",
+        "content": "Node.js is a JavaScript runtime environment that React Native relies on. You can download the latest version from the official Node.js website. npm (Node Package Manager) is typically installed along with Node.js. Alternatively, you can use yarn, another popular package manager, which can be installed separately.",
+        "level": 2
+      },
+      {
+        "heading": "Installing the React Native CLI",
+        "content": "The React Native CLI (Command Line Interface) is a tool that allows you to create, run, and debug React Native projects. You can install it globally using npm or yarn:\n\n```bash\nnpm install -g react-native-cli\n```\n\nor\n\n```bash\nyarn global add react-native-cli\n```",
+        "level": 2
+      },
+      {
+        "heading": "Creating a New React Native Project",
+        "content": "Once your environment is set up, you can create a new React Native project using the `react-native init` command:\n\n```bash\nreact-native init MyAwesomeApp\n```\n\nThis will create a new directory named `MyAwesomeApp` with all the necessary files and dependencies for a basic React Native project.",
+        "level": 1
+      },
+      {
+        "heading": "Running Your App",
+        "content": "To run your app on an iOS or Android emulator/simulator, navigate to your project directory and run the following commands:\n\n**iOS:**\n\n```bash\nreact-native run-ios\n```\n\n**Android:**\n\n```bash\nreact-native run-android\n```",
+        "level": 1
+      },
+      {
+        "heading": "Core Components",
+        "content": "React Native provides a set of core components that are essential for building user interfaces. These components are platform-agnostic and render to native UI elements on both iOS and Android.",
+        "level": 1
+      },
+      {
+        "heading": "View",
+        "content": "The `View` component is the most fundamental building block for UI. It's similar to a `<div>` in HTML and acts as a container for other components.  You can use `View` to group elements together and apply styling.",
+        "level": 2
+      },
+      {
+        "heading": "Text",
+        "content": "The `Text` component is used to display text.  It supports styling options such as font size, color, and alignment.",
+        "level": 2
+      },
+      {
+        "heading": "Image",
+        "content": "The `Image` component is used to display images. It supports both local and remote image sources.",
+        "level": 2
+      },
+      {
+        "heading": "TextInput",
+        "content": "The `TextInput` component allows users to enter text. It's the equivalent of an `<input>` element in HTML.",
+        "level": 2
+      },
+      {
+        "heading": "Button",
+        "content": "The `Button` component provides a simple button that triggers an action when pressed.",
+        "level": 2
+      },
+      {
+        "heading": "Styling in React Native",
+        "content": "React Native uses a styling system similar to CSS, but with some key differences. Styles are defined as JavaScript objects and applied directly to components.",
+        "level": 1
+      },
+      {
+        "heading": "Inline Styles",
+        "content": "You can apply styles directly to a component using the `style` prop:\n\n```javascript\n<Text style={{ fontSize: 20, color: 'blue' }}>Hello, world!</Text>\n```",
+        "level": 2
+      },
+      {
+        "heading": "Style Sheets",
+        "content": "For more complex styles, it's recommended to use the `StyleSheet.create` method to define styles in a separate object:\n\n```javascript\nconst styles = StyleSheet.create({\n  title: {\n    fontSize: 24,\n    fontWeight: 'bold',\n  },\n});\n\n<Text style={styles.title}>My Title</Text>\n```",
+        "level": 2
+      },
+      {
+        "heading": "Flexbox Layout",
+        "content": "React Native uses Flexbox for layout, which provides a powerful and flexible way to arrange components on the screen. Understanding Flexbox is crucial for creating responsive and adaptive user interfaces.",
+        "level": 1
+      },
+      {
+        "heading": "Common Flexbox Properties",
+        "content": "Here are some commonly used Flexbox properties:\n\n*   `flexDirection`: Determines the direction of the main axis (row or column).\n*   `justifyContent`: Aligns items along the main axis.\n*   `alignItems`: Aligns items along the cross axis.\n*   `flex`: Determines how much space a component should take up relative to other components.",
+        "level": 2
+      },
+      {
+        "heading": "Handling User Input",
+        "content": "React Native provides several ways to handle user input, including touch events, keyboard input, and gestures.",
+        "level": 1
+      },
+      {
+        "heading": "Touch Events",
+        "content": "You can use the `Touchable` components (e.g., `TouchableOpacity`, `TouchableHighlight`) to detect touch events and trigger actions.",
+        "level": 2
+      },
+      {
+        "heading": "State Management",
+        "content": "State management is crucial for building complex React Native applications.  React's built-in `useState` hook is a common approach, but for larger applications, libraries like Redux or MobX are often preferred.",
+        "level": 1
+      },
+      {
+        "heading": "Using useState",
+        "content": "The `useState` hook allows you to add state to functional components:\n\n```javascript\nimport React, { useState } from 'react';\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <>\n      <Text>Count: {count}</Text>\n      <Button title=\"Increment\" onPress={() => setCount(count + 1)} />\n    </>\n  );\n}\n```",
+        "level": 2
+      },
+      {
+        "heading": "Navigation",
+        "content": "Navigation is essential for creating multi-screen apps.  React Navigation is a popular library for handling navigation in React Native.",
+        "level": 1
+      },
+      {
+        "heading": "React Navigation",
+        "content": "React Navigation provides a set of components and utilities for creating different types of navigation patterns, such as stack navigation, tab navigation, and drawer navigation.",
+        "level": 2
+      },
+      {
+        "heading": "Conclusion",
+        "content": "React Native is a powerful framework for building cross-platform mobile apps. With its code reusability, native performance, and large community, it's a great choice for developers looking to build high-quality mobile experiences.",
+        "level": 1
+      }
+    ]
+  },
+  "output_file": "C:\\Users\\Prateek/Downloads\\React_Native_Documentation_20250601_0131.docx"
+}

@@ -1,0 +1,59 @@
+{
+  "prompt": "Write email to my POC name garima vermas telling her that i am not able to come to office because of the personal reasons now write this in a profesional way",
+  "commands": {
+    "title": "Out of Office Notification",
+    "style": "Professional",
+    "formatting": {
+      "font": "Calibri",
+      "page_size": "A4",
+      "margins": "Normal",
+      "include_toc": false,
+      "include_page_numbers": false,
+      "include_header": false,
+      "include_footer": false
+    },
+    "sections": [
+      {
+        "heading": null,
+        "content": "Subject: Absence from Office - [Your Name]",
+        "level": 1
+      },
+      {
+        "heading": null,
+        "content": "Dear Garima Verma,",
+        "level": 1
+      },
+      {
+        "heading": null,
+        "content": "Please accept this email as notification that I will be unable to come to the office today, [Date], due to personal reasons.",
+        "level": 1
+      },
+      {
+        "heading": null,
+        "content": "I apologize for any inconvenience this may cause. I will have limited access to email and phone during this time. If your matter is urgent, please contact [Colleague's Name] at [Colleague's Email Address] or [Colleague's Phone Number].",
+        "level": 1
+      },
+      {
+        "heading": null,
+        "content": "I expect to be back in the office on [Date of Return, if known, otherwise omit this sentence]. I will address any outstanding items upon my return.",
+        "level": 1
+      },
+      {
+        "heading": null,
+        "content": "Thank you for your understanding.",
+        "level": 1
+      },
+      {
+        "heading": null,
+        "content": "Sincerely,",
+        "level": 1
+      },
+      {
+        "heading": null,
+        "content": "[Your Name]\n[Your Job Title]\n[Your Contact Number]",
+        "level": 1
+      }
+    ]
+  },
+  "output_file": "C:\\Users\\Prateek/Downloads\\Out_of_Office_Notification_20250601_0032.docx"
+}

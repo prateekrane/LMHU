@@ -1,0 +1,122 @@
+{
+  "prompt": "Generate a professional and data-driven presentation with a focus on clean layouts, structured charts, and corporate branding. Include elements like bar charts, line graphs, and flow diagrams to visualize data effectively. Use a formal tone and consistent color schemes to maintain a professional appearance",
+  "commands": {
+    "title": "Strategic Performance Review",
+    "subtitle": "Data-Driven Insights for Q3 2024",
+    "theme": "Corporate",
+    "font": "Arial",
+    "color_scheme": "Blue",
+    "include_toc": false,
+    "include_notes": false,
+    "slides": [
+      {
+        "title": "Executive Summary",
+        "content": "Key Performance Indicators (KPIs) demonstrate strong growth in Q3. Revenue increased by 15% year-over-year. Customer satisfaction scores remain high at 92%. Strategic initiatives are on track. Focus areas for Q4 include market expansion and product development.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Blue gradient background"
+            },
+            {
+              "type": "transition",
+              "description": "Fade transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Revenue Growth Analysis",
+        "content": "This bar chart illustrates revenue growth across different product lines. Product A shows significant growth, while Product B remains stable. Product C experienced a slight decline, requiring further investigation.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "chart",
+              "description": "Bar chart comparing revenue by product line (A, B, C) for Q3 2023 and Q3 2024. Blue color scheme."
+            },
+            {
+              "type": "shape",
+              "description": "Rounded rectangle shape to highlight the chart"
+            },
+            {
+              "type": "transition",
+              "description": "Push transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Customer Satisfaction Trends",
+        "content": "The line graph depicts customer satisfaction scores over the past year. A consistent high level of satisfaction indicates effective customer service and product quality. Minor fluctuations are attributed to seasonal factors.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "chart",
+              "description": "Line graph showing customer satisfaction scores (out of 100) over the past 12 months. Blue line with markers."
+            },
+            {
+              "type": "shape",
+              "description": "Subtle blue border around the chart area"
+            },
+            {
+              "type": "transition",
+              "description": "Wipe transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Sales Process Optimization",
+        "content": "This flow diagram outlines the optimized sales process. Key improvements include automated lead qualification and streamlined contract negotiation. These changes have resulted in a 10% increase in sales conversion rates.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "drawing",
+              "description": "Flow diagram illustrating the sales process: Lead Generation -> Qualification -> Demo -> Negotiation -> Close. Blue color scheme."
+            },
+            {
+              "type": "shape",
+              "description": "Arrow shapes connecting the process steps"
+            },
+            {
+              "type": "transition",
+              "description": "Reveal transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Future Outlook & Recommendations",
+        "content": "Based on Q3 performance, we recommend continued investment in Product A and strategic market expansion into new regions. Further analysis is needed to address the decline in Product C sales. Focus on improving customer retention rates through enhanced support services.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Blue gradient background with company logo in the corner"
+            },
+            {
+              "type": "transition",
+              "description": "Fade transition"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "output_file": "C:\\Users\\Prateek/Downloads\\Strategic_Performance_Review_20250531_0037.pptx"
+}

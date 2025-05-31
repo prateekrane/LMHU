@@ -1,0 +1,110 @@
+{
+  "prompt": "Build PPT for global warming",
+  "commands": {
+    "title": "Global Warming: A Looming Crisis",
+    "subtitle": "Understanding the Causes and Impacts",
+    "theme": "Creative",
+    "font": "Calibri",
+    "color_scheme": "Default",
+    "include_toc": false,
+    "include_notes": false,
+    "slides": [
+      {
+        "title": "The Greenhouse Effect: A Visual Explanation",
+        "content": "Earth's atmosphere traps some of the sun's energy, creating a 'greenhouse effect'.\n\nThis natural process warms the planet, but human activities are intensifying it.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Sun graphic emitting rays towards a stylized Earth. Some rays are reflected back into space, others are trapped by a cloud layer representing the atmosphere. Use warm colors for the sun and rays, cool colors for the Earth and atmosphere."
+            },
+            {
+              "type": "transition",
+              "description": "Morph transition to smoothly transition from this slide to the next, showing the greenhouse effect intensifying."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Human Activities: Fueling the Fire",
+        "content": "Burning fossil fuels (coal, oil, and gas) releases large amounts of greenhouse gases, primarily carbon dioxide (CO2).\n\nDeforestation reduces the planet's ability to absorb CO2.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Drawing of a factory emitting smoke and a deforested landscape. Use contrasting colors to highlight the negative impact."
+            },
+            {
+              "type": "transition",
+              "description": "Fade transition with a short duration."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Rising Temperatures: A Global Trend",
+        "content": "Global average temperatures have been steadily increasing over the past century.\n\nThis warming trend is causing significant changes to our planet's climate.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "chart",
+              "description": "Line chart showing the global average temperature increase over the past 100 years. Use a bold, contrasting color for the line."
+            },
+            {
+              "type": "transition",
+              "description": "Push transition from left to right."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Impacts of Global Warming: A Cascade of Effects",
+        "content": "Melting glaciers and ice sheets contribute to rising sea levels.\n\nExtreme weather events, such as heatwaves, droughts, and floods, are becoming more frequent and intense.\n\nChanges in precipitation patterns are disrupting agriculture and water resources.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Collage of images depicting melting glaciers, a flooded city, and a drought-stricken landscape. Arrange the images in a visually appealing and impactful way."
+            },
+            {
+              "type": "transition",
+              "description": "Zoom transition with a subtle zoom effect."
+            }
+          ]
+        }
+      },
+      {
+        "title": "What Can We Do? Taking Action Together",
+        "content": "Reduce our carbon footprint by using renewable energy, improving energy efficiency, and adopting sustainable transportation.\n\nSupport policies that promote climate action and invest in green technologies.\n\nRaise awareness and educate others about the importance of addressing global warming.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Image of people working together to plant trees and install solar panels. Use bright, optimistic colors to convey a sense of hope and action."
+            },
+            {
+              "type": "transition",
+              "description": "Cover transition from bottom to top."
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "output_file": "C:\\Users\\Prateek/Downloads\\Global_Warming_A_Looming_Crisi_20250531_2046.pptx"
+}

@@ -8,8 +8,10 @@ from pptx.enum.dml import MSO_THEME_COLOR
 from pptx.chart.data import CategoryChartData
 import os
 from datetime import datetime
-import comtypes.client
 import comtypes
+import comtypes.client
+import tempfile
+import win32com.client
 
 def _get_theme_colors(theme_name):
     # Define theme-specific color palettes
@@ -52,20 +54,11 @@ def _apply_theme(prs, theme_name):
     theme_map = {
         "Professional": {
             "layout": "Office Theme",
-            "elements": ["transition", "minimal_shape"],
+            "elements": ["transition"],
             "title_font_size": 40,
             "subtitle_font_size": 28,
             "content_font_size": 20,
             "bullet_font_size": 18,
-            "shape_types": [
-                MSO_SHAPE.ROUNDED_RECTANGLE,
-                MSO_SHAPE.RECTANGLE,
-                MSO_SHAPE.FLOWCHART_PROCESS,
-                MSO_SHAPE.FLOWCHART_DECISION,
-                MSO_SHAPE.BLOCK_ARC
-            ],
-            "chart_types": [XL_CHART_TYPE.COLUMN_CLUSTERED],
-            "design_elements": ["clean_lines", "subtle_shadows"],
             "transition": {
                 "effect": "fade",
                 "duration": 0.5
@@ -73,22 +66,15 @@ def _apply_theme(prs, theme_name):
         },
         "Creative": {
             "layout": "Facet",
-            "elements": ["transition", "shape", "artistic"],
+            "elements": ["transition", "animation"],
             "title_font_size": 44,
             "subtitle_font_size": 32,
             "content_font_size": 24,
             "bullet_font_size": 22,
-            "shape_types": [
-                MSO_SHAPE.STAR_5_POINT,
-                MSO_SHAPE.STAR_8_POINT,
-                MSO_SHAPE.CLOUD,
-                MSO_SHAPE.SUN,
-                MSO_SHAPE.WAVE,
-                MSO_SHAPE.DOUBLE_WAVE,
-                MSO_SHAPE.BALLOON
-            ],
-            "chart_types": [XL_CHART_TYPE.PIE, XL_CHART_TYPE.DOUGHNUT],
-            "design_elements": ["gradients", "overlapping_shapes", "dynamic_lines"],
+            "animation_settings": {
+                "title": "zoom",
+                "content": "float"
+            },
             "transition": {
                 "effect": "wipe",
                 "duration": 0.3
@@ -96,21 +82,15 @@ def _apply_theme(prs, theme_name):
         },
         "Corporate": {
             "layout": "Office Theme",
-            "elements": ["chart", "shape", "transition", "data_visualization"],
+            "elements": ["transition", "animation"],
             "title_font_size": 36,
             "subtitle_font_size": 28,
             "content_font_size": 20,
             "bullet_font_size": 18,
-            "shape_types": [
-                MSO_SHAPE.FLOWCHART_PROCESS,
-                MSO_SHAPE.FLOWCHART_DECISION,
-                MSO_SHAPE.FLOWCHART_TERMINATOR,
-                MSO_SHAPE.CUBE,
-                MSO_SHAPE.BLOCK_ARC,
-                MSO_SHAPE.ROUNDED_RECTANGLE
-            ],
-            "chart_types": [XL_CHART_TYPE.COLUMN_CLUSTERED, XL_CHART_TYPE.LINE, XL_CHART_TYPE.BAR_CLUSTERED],
-            "design_elements": ["grid_lines", "professional_icons", "data_highlights"],
+            "animation_settings": {
+                "title": "fly_in",
+                "content": "fade"
+            },
             "transition": {
                 "effect": "push",
                 "duration": 0.5
@@ -118,21 +98,15 @@ def _apply_theme(prs, theme_name):
         },
         "Modern": {
             "layout": "Ion",
-            "elements": ["design", "shape", "transition", "minimal"],
+            "elements": ["transition", "animation"],
             "title_font_size": 42,
             "subtitle_font_size": 30,
             "content_font_size": 22,
             "bullet_font_size": 20,
-            "shape_types": [
-                MSO_SHAPE.ROUNDED_RECTANGLE,
-                MSO_SHAPE.CIRCULAR_ARROW,
-                MSO_SHAPE.WAVE,
-                MSO_SHAPE.DOUBLE_WAVE,
-                MSO_SHAPE.BEVEL,
-                MSO_SHAPE.FOLDED_CORNER
-            ],
-            "chart_types": [XL_CHART_TYPE.LINE_MARKERS, XL_CHART_TYPE.AREA],
-            "design_elements": ["geometric_patterns", "bold_colors", "minimal_icons"],
+            "animation_settings": {
+                "title": "float",
+                "content": "zoom"
+            },
             "transition": {
                 "effect": "cut",
                 "duration": 0.3
@@ -140,20 +114,15 @@ def _apply_theme(prs, theme_name):
         },
         "Elegant": {
             "layout": "Office Theme",
-            "elements": ["design", "chart", "shape", "transition", "premium"],
+            "elements": ["transition", "animation"],
             "title_font_size": 38,
             "subtitle_font_size": 28,
             "content_font_size": 20,
             "bullet_font_size": 18,
-            "shape_types": [
-                MSO_SHAPE.STAR_8_POINT,
-                MSO_SHAPE.STAR_12_POINT,
-                MSO_SHAPE.CIRCULAR_ARROW,
-                MSO_SHAPE.BLOCK_ARC,
-                MSO_SHAPE.CHORD
-            ],
-            "chart_types": [XL_CHART_TYPE.LINE, XL_CHART_TYPE.AREA_STACKED],
-            "design_elements": ["subtle_patterns", "gold_accents", "sophisticated_icons"],
+            "animation_settings": {
+                "title": "fade",
+                "content": "fly_in"
+            },
             "transition": {
                 "effect": "dissolve",
                 "duration": 0.7
@@ -509,22 +478,8 @@ def _get_topic_based_chart_data(topic):
     
     return default_data
 
-def _apply_comtypes_transitions(filepath, theme_name):
-    """Apply slide transitions using comtypes based on the theme."""
-    # Define theme-specific transitions
-    theme_transitions = {
-        "Professional": {"effect": "fade", "duration": 0.5},
-        "Creative": {"effect": "wipe", "duration": 0.3},
-        "Corporate": {"effect": "push", "duration": 0.5},
-        "Modern": {"effect": "cut", "duration": 0.3},
-        "Elegant": {"effect": "dissolve", "duration": 0.7}
-    }
-
-    # Get the transition settings for the theme, default to Professional
-    transition = theme_transitions.get(theme_name, theme_transitions["Professional"])
-    effect = transition["effect"]
-    duration = transition["duration"]
-
+def _apply_comtypes_transitions(filepath, transition_effect, transition_duration):
+    """Apply slide transitions using comtypes based on the provided effect and duration."""
     comtypes.CoInitialize()  # Initialize COM
     try:
         powerpoint = comtypes.client.CreateObject("PowerPoint.Application")
@@ -535,10 +490,10 @@ def _apply_comtypes_transitions(filepath, theme_name):
         for slide in presentation.Slides:
             slide.SlideShowTransition.EntryEffect = getattr(
                 comtypes.gen.PowerPoint.PpEntryEffect,
-                f"ppEffect{effect.capitalize()}",
+                f"ppEffect{transition_effect.capitalize()}",
                 0
             )
-            slide.SlideShowTransition.Duration = duration
+            slide.SlideShowTransition.Duration = transition_duration
 
         presentation.Save()
         presentation.Close()
@@ -546,200 +501,241 @@ def _apply_comtypes_transitions(filepath, theme_name):
     finally:
         comtypes.CoUninitialize()  # Uninitialize COM
 
-def generate_ppt_doc(data):
-    prs = Presentation()
-    
-    # Get the presentation topic from the title
-    topic = data.get("title", "").lower()
-    
-    # Apply theme and color scheme
-    theme_info = _apply_theme(prs, data.get("theme", "Professional"))
-    theme_colors = _apply_color_scheme(prs, data.get("color_scheme", "Default"), data.get("theme", "Professional"))
-    font_name = data.get("font", "Calibri")
-    
-    # Create title slide
-    title_slide_layout = prs.slide_layouts[0]
-    slide = prs.slides.add_slide(title_slide_layout)
-    
-    # Apply title and subtitle with theme-specific formatting
-    title_shape = slide.shapes.title
-    title_shape.text = data.get("title", "Untitled Presentation")
-    _apply_font(title_shape, font_name, 
-                theme_info["title_font_size"],
-                theme_colors["primary"],
-                bold=True)
-    
-    subtitle_shape = slide.placeholders[1]
-    subtitle_shape.text = data.get("subtitle", "")
-    _apply_font(subtitle_shape, font_name,
-                theme_info["subtitle_font_size"],
-                theme_colors["secondary"])
-    
-    # Process slides
-    slides_data = data.get("slides", [])
-    include_toc = data.get("include_toc", True)
-    include_notes = data.get("include_notes", True)
-    
-    # Add slides
-    for idx, slide_data in enumerate(slides_data):
-        # Choose layout based on whether it's a TOC slide
-        is_toc = slide_data.get("title", "").lower() == "table of contents"
+def _apply_text_box_animation_with_comtypes(filepath, slide_index, shape_index, animation_type):
+    """Apply animation to a text box using comtypes."""
+    powerpoint = None
+    presentation = None
+    try:
+        # Initialize COM only once
+        comtypes.CoInitialize()
         
-        if is_toc:
-            # Use a custom layout for TOC
-            layout = prs.slide_layouts[2]  # Using a blank layout for TOC
+        # Create PowerPoint application instance
+        powerpoint = comtypes.client.CreateObject("PowerPoint.Application")
+        powerpoint.DisplayAlerts = 0  # Disable alerts
+        powerpoint.Visible = 0  # Make PowerPoint invisible
+        
+        # Open presentation with a timeout
+        import time
+        start_time = time.time()
+        timeout = 10  # 10 seconds timeout
+        
+        while time.time() - start_time < timeout:
+            try:
+                presentation = powerpoint.Presentations.Open(
+                    filepath,
+                    WithWindow=0,  # Don't show window
+                    ReadOnly=0     # Read-write mode
+                )
+                break
+            except Exception as e:
+                if time.time() - start_time >= timeout:
+                    print(f"Timeout opening presentation: {str(e)}")
+                    return
+                time.sleep(0.5)  # Wait before retrying
+        
+        if not presentation:
+            print("Failed to open presentation")
+            return
+            
+        try:
+            # Get the slide and shape
+            slide = presentation.Slides.Item(slide_index + 1)
+            shape = slide.Shapes.Item(shape_index + 1)
+            
+            # Define animation effects mapping
+            animation_effects = {
+                "fade": 0x17,      # ppAnimateByFade
+                "float_in": 0x0B,  # ppAnimateByFloat
+                "zoom": 0x0E,      # ppAnimateByZoom
+                "fly_in": 0x04     # ppAnimateByFly
+            }
+            
+            # Get effect number (default to fade)
+            effect_number = animation_effects.get(animation_type.lower(), 0x17)
+            
+            # Apply animation settings
+            animation = shape.AnimationSettings
+            animation.Animate = -1
+            animation.EntryEffect = effect_number
+            
+            # Save without prompting
+            presentation.Save()
+            
+        except Exception as e:
+            print(f"Animation error: {str(e)}")
+        finally:
+            if presentation:
+                try:
+                    presentation.Close()
+                except:
+                    pass
+    except Exception as e:
+        print(f"PowerPoint error: {str(e)}")
+    finally:
+        if powerpoint:
+            try:
+                powerpoint.Quit()
+            except:
+                pass
+        try:
+            comtypes.CoUninitialize()
+        except:
+            pass
+
+def generate_ppt_doc(data):
+    temp_files = []
+    powerpoint = None
+    try:
+        prs = Presentation()
+        
+        # Get theme and color settings
+        theme_info = _apply_theme(prs, data.get("theme", "Professional"))
+        theme_colors = _apply_color_scheme(prs, data.get("color_scheme", "Default"), data.get("theme", "Professional"))
+        font_name = data.get("font", "Calibri")
+        theme_name = data.get("theme", "Professional")
+        
+        # Create title slide
+        title_slide_layout = prs.slide_layouts[0]
+        slide = prs.slides.add_slide(title_slide_layout)
+        
+        # Apply title and subtitle
+        title_shape = slide.shapes.title
+        title_shape.text = data.get("title", "Untitled Presentation")
+        _apply_font(title_shape, font_name, theme_info["title_font_size"], theme_colors["primary"], bold=True)
+        
+        subtitle_shape = slide.placeholders[1]
+        subtitle_shape.text = data.get("subtitle", "")
+        _apply_font(subtitle_shape, font_name, theme_info["subtitle_font_size"], theme_colors["secondary"])
+        
+        # Process remaining slides
+        slides_data = data.get("slides", [])
+        include_toc = data.get("include_toc", True)
+        
+        # Create all slides first
+        for idx, slide_data in enumerate(slides_data):
+            is_toc = slide_data.get("title", "").lower() == "table of contents"
+            layout = prs.slide_layouts[2] if is_toc else prs.slide_layouts[1]
             slide = prs.slides.add_slide(layout)
             
-            # Add title with proper spacing
-            title_shape = slide.shapes.title
-            title_shape.text = "Table of Contents"
-            _apply_font(title_shape, font_name,
-                        theme_info["title_font_size"],
-                        theme_colors["primary"],
-                        bold=True)
-            
-            # Create a text box for TOC content with improved positioning
-            left = Inches(1.5)  # Increased left margin
-            top = Inches(2.2)   # Adjusted top position
-            width = Inches(7)   # Adjusted width for better alignment
-            height = Inches(4)
-            
-            toc_box = slide.shapes.add_textbox(left, top, width, height)
-            tf = toc_box.text_frame
-            tf.word_wrap = True
-            tf.margin_left = Inches(0.1)  # Add small left margin
-            tf.margin_right = Inches(0.1) # Add small right margin
-            
-            # Process TOC content
-            content = slide_data.get("content", "")
-            lines = content.split('\n')
-            
-            # Add each line as a paragraph with proper formatting
-            for line in lines:
-                if line.strip():
-                    # Clean the line of any asterisks or unwanted characters
-                    clean_line = line.strip().replace('*', '').strip()
-                    if not clean_line:
-                        continue
-                        
-                    p = tf.add_paragraph()
-                    p.text = clean_line
-                    p.level = 0  # Main level
-                    p.alignment = PP_ALIGN.LEFT
-                    p.space_before = Pt(6)  # Add space before paragraph
-                    p.space_after = Pt(6)   # Add space after paragraph
-                    
-                    # Format the paragraph
-                    for run in p.runs:
-                        run.font.name = font_name
-                        run.font.size = Pt(theme_info["content_font_size"])
-                        run.font.color.rgb = theme_colors["text"]
-                        
-                        # Make numbers and titles bold
-                        if clean_line[0].isdigit() or clean_line.startswith(('Chapter', 'Section', 'Part')):
-                            run.font.bold = True
-                            run.font.color.rgb = theme_colors["primary"]
-            
-            # Add decorative elements for TOC with improved positioning
-            if theme_info["layout"] == "Facet":  # Creative theme
-                _add_shape(slide, MSO_SHAPE.OVAL, 0.8, 1.8, 0.3, 0.3,
-                          fill_color=theme_colors["accent"])
-                _add_shape(slide, MSO_SHAPE.OVAL, 8.9, 1.8, 0.3, 0.3,
-                          fill_color=theme_colors["accent"])
-            elif theme_info["layout"] == "Ion":  # Modern theme
-                _add_shape(slide, MSO_SHAPE.ROUNDED_RECTANGLE, 0.5, 2, 9, 0.1,
-                          fill_color=theme_colors["primary"])
-                _add_shape(slide, MSO_SHAPE.ROUNDED_RECTANGLE, 0.5, 5.8, 9, 0.1,
-                          fill_color=theme_colors["primary"])
-            else:  # Professional and other themes
-                _add_shape(slide, MSO_SHAPE.RECTANGLE, 0.5, 2, 9, 0.05,
-                          fill_color=theme_colors["primary"])
-                _add_shape(slide, MSO_SHAPE.RECTANGLE, 0.5, 5.8, 9, 0.05,
-                          fill_color=theme_colors["primary"])
-            
-        else:
-            # Regular slide
-            layout = prs.slide_layouts[1]
-            slide = prs.slides.add_slide(layout)
-            
-            # Get slide-specific formatting
-            formatting = slide_data.get("formatting", {})
-            title_font_size = formatting.get("title_font_size", theme_info["title_font_size"])
-            content_font_size = formatting.get("content_font_size", theme_info["content_font_size"])
-            
-            # Apply title
+            # Apply content
             title_shape = slide.shapes.title
             title_shape.text = slide_data.get("title", "")
-            _apply_font(title_shape, font_name,
-                        title_font_size,
-                        theme_colors["primary"],
-                        bold=True)
+            _apply_font(title_shape, font_name, theme_info["title_font_size"], theme_colors["primary"], bold=True)
             
-            # Apply content with proper formatting
-            content_shape = slide.placeholders[1]
-            content_shape.text = slide_data.get("content", "")
-            _apply_font(content_shape, font_name,
-                        content_font_size,
-                        theme_colors["text"])
-        
-        # Apply theme-specific elements
-        _apply_theme_elements(slide, theme_info, formatting, theme_colors, topic)
-        
-        # Apply speaker notes if enabled
-        if include_notes and slide_data.get("notes"):
-            notes_slide = slide.notes_slide
-            notes_slide.notes_text_frame.text = slide_data.get("notes", "")
-            _apply_font(notes_slide.notes_text_frame, font_name, 12,
-                        theme_colors["text"])
-        
-        # Apply slide transition
-        if hasattr(slide, 'transition'):
-            # Use different transitions based on theme and slide type
-            if is_toc:
-                # Special transition for TOC
-                slide.transition.transition_type = 'fade'
-                slide.transition.transition_speed = 0.5
+            if not is_toc:
+                content_shape = slide.placeholders[1]
+                content_shape.text = slide_data.get("content", "")
+                _apply_font(content_shape, font_name, theme_info["content_font_size"], theme_colors["text"])
             else:
-                # Theme-specific transitions
-                if theme_info["layout"] == "Facet":  # Creative theme
-                    transitions = ['wipe', 'push', 'cut', 'fade']
-                elif theme_info["layout"] == "Ion":  # Modern theme
-                    transitions = ['cut', 'wipe', 'push', 'fade']
-                elif "Elegant" in theme_info["layout"]:  # Elegant theme
-                    transitions = ['dissolve', 'fade', 'wipe', 'push']
-                else:  # Professional and Corporate themes
-                    transitions = ['fade', 'push', 'wipe', 'cut']
+                # Handle TOC slide
+                left, top, width, height = Inches(1.5), Inches(2.2), Inches(7), Inches(4)
+                toc_box = slide.shapes.add_textbox(left, top, width, height)
+                tf = toc_box.text_frame
+                tf.word_wrap = True
                 
-                # Cycle through transitions for variety
-                transition = transitions[idx % len(transitions)]
-                slide.transition.transition_type = transition
-                slide.transition.transition_speed = 0.5
-
-    # Generate a clean, descriptive filename
-    title = data.get("title", "Untitled").strip()
-    # Remove special characters and replace spaces with underscores
-    clean_title = "".join(c for c in title if c.isalnum() or c.isspace())
-    clean_title = clean_title.replace(" ", "_")
-    # Limit title length and add timestamp
-    if len(clean_title) > 30:
-        clean_title = clean_title[:30]
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M")
-    filename = f"{clean_title}_{timestamp}.pptx"
-    
-    # Save the presentation to Downloads folder
-    downloads_path = os.path.expanduser("~/Downloads")
-    filepath = os.path.join(downloads_path, filename)
-    
-    # Ensure Downloads folder exists
-    os.makedirs(downloads_path, exist_ok=True)
-    
-    # Save the presentation
-    prs.save(filepath)
-
-    # Apply transitions using comtypes
-    transition_effect = data.get("transition_effect", "fade")
-    transition_duration = data.get("transition_duration", 1)
-    _apply_comtypes_transitions(filepath, transition_effect, transition_duration)
-
-    return filepath
-
+                content = slide_data.get("content", "")
+                for line in content.split('\n'):
+                    if line.strip():
+                        p = tf.add_paragraph()
+                        p.text = line.strip().replace('*', '').strip()
+                        p.alignment = PP_ALIGN.LEFT
+                        for run in p.runs:
+                            run.font.name = font_name
+                            run.font.size = Pt(theme_info["content_font_size"])
+                            run.font.color.rgb = theme_colors["text"]
+        
+        # Generate final filename
+        downloads_path = os.path.expanduser("~/Downloads")
+        os.makedirs(downloads_path, exist_ok=True)
+        
+        title = data.get("title", "Untitled").strip()
+        clean_title = "".join(c for c in title if c.isalnum() or c.isspace())
+        clean_title = clean_title.replace(" ", "_")[:30]
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M")
+        filename = f"{clean_title}_{timestamp}.pptx"
+        final_filepath = os.path.join(downloads_path, filename)
+        
+        # Save to final location
+        prs.save(final_filepath)
+        
+        # Apply animations only to the final file
+        if "animation" in theme_info["elements"]:
+            # Initialize PowerPoint once for all animations
+            try:
+                comtypes.CoInitialize()
+                powerpoint = comtypes.client.CreateObject("PowerPoint.Application")
+                powerpoint.DisplayAlerts = 0
+                powerpoint.Visible = 0
+                
+                # Open the final presentation
+                presentation = powerpoint.Presentations.Open(
+                    final_filepath,
+                    WithWindow=0,
+                    ReadOnly=0
+                )
+                
+                theme_animations = {
+                    "Creative": {"title": "zoom", "content": "float"},
+                    "Corporate": {"title": "fly_in", "content": "fade"},
+                    "Modern": {"title": "float", "content": "zoom"},
+                    "Elegant": {"title": "fade", "content": "fly_in"}
+                }
+                
+                animations = theme_animations.get(theme_name, {})
+                if animations:
+                    # Apply animations to all slides at once
+                    for idx in range(len(slides_data) + 1):  # +1 for title slide
+                        try:
+                            slide = presentation.Slides.Item(idx + 1)
+                            if idx == 0:  # Title slide
+                                shape = slide.Shapes.Item(1)
+                                animation = shape.AnimationSettings
+                                animation.Animate = -1
+                                animation.EntryEffect = 0x0E  # bounce/zoom
+                            else:  # Content slides
+                                if animations.get("title"):
+                                    shape = slide.Shapes.Item(1)
+                                    animation = shape.AnimationSettings
+                                    animation.Animate = -1
+                                    animation.EntryEffect = animation_effects.get(animations["title"], 0x17)
+                                
+                                if animations.get("content") and not slides_data[idx-1].get("title", "").lower() == "table of contents":
+                                    if slide.Shapes.Count > 1:
+                                        shape = slide.Shapes.Item(2)
+                                        animation = shape.AnimationSettings
+                                        animation.Animate = -1
+                                        animation.EntryEffect = animation_effects.get(animations["content"], 0x17)
+                        except Exception as e:
+                            print(f"Error applying animation to slide {idx + 1}: {str(e)}")
+                            continue
+                
+                # Save and close
+                presentation.Save()
+                presentation.Close()
+                
+            except Exception as e:
+                print(f"Error applying animations: {str(e)}")
+            finally:
+                if powerpoint:
+                    try:
+                        powerpoint.Quit()
+                    except:
+                        pass
+                try:
+                    comtypes.CoUninitialize()
+                except:
+                    pass
+        
+        return final_filepath
+        
+    except Exception as e:
+        print(f"Error generating presentation: {str(e)}")
+        raise
+    finally:
+        # Clean up temp files
+        for temp_file in temp_files:
+            try:
+                if os.path.exists(temp_file):
+                    os.unlink(temp_file)
+            except:
+                pass

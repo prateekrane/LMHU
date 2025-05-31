@@ -1,0 +1,110 @@
+{
+  "prompt": "Build PPT for global warming",
+  "commands": {
+    "title": "Global Warming: A Burning Issue",
+    "subtitle": "Understanding and Addressing Climate Change",
+    "theme": "Creative",
+    "font": "Arial",
+    "color_scheme": "Orange",
+    "include_toc": false,
+    "include_notes": false,
+    "slides": [
+      {
+        "title": "The Heat is On: Introduction to Global Warming",
+        "content": "Global warming refers to the long-term warming of the planet's overall temperature. It is primarily caused by increased levels of atmospheric carbon dioxide produced by the use of fossil fuels. The consequences are far-reaching and impact every ecosystem on Earth.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Burning Earth graphic in the background, fading in from left to right."
+            },
+            {
+              "type": "transition",
+              "description": "Morph transition to next slide"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Causes: Fueling the Fire",
+        "content": "The primary driver of global warming is the greenhouse effect. Key contributors include:\n\n*   Burning fossil fuels (coal, oil, and natural gas)\n*   Deforestation\n*   Industrial processes\n*   Agriculture",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Animated rising smoke clouds from a burning factory graphic."
+            },
+            {
+              "type": "transition",
+              "description": "Push transition from right to left"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Impacts: Feeling the Burn",
+        "content": "Global warming is causing a wide range of impacts, including:\n\n*   Rising sea levels\n*   More frequent and intense heatwaves\n*   Changes in precipitation patterns\n*   Increased ocean acidity\n*   Loss of biodiversity",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Graphic depicting rising sea levels and flooded cities, using orange and blue color scheme."
+            },
+            {
+              "type": "transition",
+              "description": "Fade transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Solutions: Extinguishing the Flames",
+        "content": "Addressing global warming requires a multifaceted approach:\n\n*   Transitioning to renewable energy sources (solar, wind, hydro)\n*   Improving energy efficiency\n*   Protecting and restoring forests\n*   Developing sustainable agriculture practices\n*   International cooperation",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Graphic representing renewable energy sources (wind turbine, solar panel) with a stylized design. Use orange and green colors."
+            },
+            {
+              "type": "transition",
+              "description": "Wipe transition from top to bottom"
+            }
+          ]
+        }
+      },
+      {
+        "title": "A Call to Action: Let's Cool Down the Planet",
+        "content": "Global warming is a serious threat, but it is not too late to act. By working together, we can reduce our carbon footprint and create a more sustainable future for all.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Image of people planting trees together, using a bright and optimistic orange filter."
+            },
+            {
+              "type": "transition",
+              "description": "Zoom transition"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "output_file": "C:\\Users\\Prateek/Downloads\\Global_Warming_A_Burning_Issue_20250531_2117.pptx"
+}

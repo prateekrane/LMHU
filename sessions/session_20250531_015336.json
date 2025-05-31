@@ -1,0 +1,155 @@
+{
+  "prompt": "Build PPt for global warming",
+  "commands": {
+    "title": "Global Warming: Understanding the Crisis and Acting for the Future",
+    "subtitle": "A Comprehensive Overview",
+    "theme": "Professional",
+    "font": "Calibri",
+    "color_scheme": "Default",
+    "include_toc": true,
+    "include_notes": true,
+    "slides": [
+      {
+        "title": "Title Slide: Global Warming",
+        "content": "Global Warming: Understanding the Crisis and Acting for the Future\n\n[Your Name/Organization]\n[Date]",
+        "notes": "Welcome everyone. This presentation will cover the critical issue of global warming, examining its causes, impacts, and potential solutions. We'll explore the science behind climate change and discuss actions we can take to mitigate its effects.",
+        "formatting": {
+          "title_font_size": 60,
+          "content_font_size": 32,
+          "elements": []
+        }
+      },
+      {
+        "title": "Table of Contents",
+        "content": "1. What is Global Warming?\n2. Causes of Global Warming\n3. Evidence of Global Warming\n4. Impacts of Global Warming\n5. Addressing Global Warming: Mitigation\n6. Addressing Global Warming: Adaptation\n7. Global Efforts and Agreements\n8. Individual Actions\n9. The Future of Our Planet\n10. Q&A",
+        "notes": "This is our roadmap for today's discussion. We will follow this structure to ensure a comprehensive understanding of global warming.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Simple bullet points for each item."
+            }
+          ]
+        }
+      },
+      {
+        "title": "What is Global Warming?",
+        "content": "Global warming refers to the long-term heating of Earth's climate system observed since the pre-industrial period (between 1850 and 1900) due to human activities, primarily fossil fuel burning, which increases heat-trapping greenhouse gas levels in Earth\u2019s atmosphere.",
+        "notes": "Explain the basic definition of global warming and emphasize the role of human activities. Mention the greenhouse effect in simple terms.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": []
+        }
+      },
+      {
+        "title": "Causes of Global Warming",
+        "content": "\u2022\tBurning Fossil Fuels (Coal, Oil, Natural Gas)\n\u2022\tDeforestation\n\u2022\tIndustrial Processes\n\u2022\tAgriculture (Livestock, Fertilizers)",
+        "notes": "Detail the primary causes of global warming, focusing on the burning of fossil fuels as the largest contributor. Briefly explain how each factor contributes to increased greenhouse gas emissions.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Bullet points to emphasize the causes."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Evidence of Global Warming",
+        "content": "\u2022\tRising Global Temperatures\n\u2022\tMelting Glaciers and Ice Sheets\n\u2022\tRising Sea Levels\n\u2022\tChanges in Precipitation Patterns\n\u2022\tMore Frequent Extreme Weather Events",
+        "notes": "Present observable evidence of global warming, highlighting the tangible effects already being seen around the world. Use statistics and data where appropriate.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Bullet points to emphasize the evidence."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Impacts of Global Warming",
+        "content": "\u2022\tEcosystem Disruption\n\u2022\tThreats to Human Health\n\u2022\tFood and Water Shortages\n\u2022\tEconomic Losses\n\u2022\tIncreased Displacement and Migration",
+        "notes": "Discuss the wide-ranging impacts of global warming on various aspects of life, from the environment to human societies. Emphasize the interconnectedness of these impacts.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Bullet points to emphasize the impacts."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Addressing Global Warming: Mitigation",
+        "content": "Mitigation: Reducing greenhouse gas emissions.\n\n\u2022\tTransition to Renewable Energy (Solar, Wind, Hydro)\n\u2022\tImprove Energy Efficiency\n\u2022\tSustainable Transportation\n\u2022\tCarbon Capture and Storage",
+        "notes": "Explain mitigation strategies aimed at reducing the sources of global warming. Focus on practical solutions and technologies.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Bullet points to emphasize the mitigation strategies."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Addressing Global Warming: Adaptation",
+        "content": "Adaptation: Adjusting to the effects of climate change.\n\n\u2022\tDeveloping Drought-Resistant Crops\n\u2022\tBuilding Flood Defenses\n\u2022\tImproving Water Management\n\u2022\tStrengthening Infrastructure",
+        "notes": "Explain adaptation strategies focused on minimizing the negative impacts of climate change that are already unavoidable. Highlight the importance of adapting to a changing climate.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Bullet points to emphasize the adaptation strategies."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Global Efforts and Agreements",
+        "content": "\u2022\tParis Agreement\n\u2022\tUN Climate Change Conferences (COPs)\n\u2022\tInternational Collaboration\n\u2022\tNational Policies and Regulations",
+        "notes": "Summarize key international agreements and efforts aimed at addressing global warming. Mention the role of international cooperation and national policies.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Bullet points to emphasize the global efforts and agreements."
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Future of Our Planet: Call to Action",
+        "content": "The time to act is now. We must work together to mitigate global warming and adapt to the changes already underway. Our future depends on it.\n\n\u2022\tReduce your carbon footprint\n\u2022\tSupport sustainable policies\n\u2022\tEducate yourself and others\n\u2022\tAdvocate for change",
+        "notes": "End with a strong call to action, urging the audience to take individual and collective action to address global warming. Emphasize the urgency and importance of the issue.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Bullet points to emphasize the actions."
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "output_file": "C:\\Users\\Prateek/Downloads\\Global_Warming_Understanding_t_20250531_0154.pptx"
+}

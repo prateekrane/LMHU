@@ -1,0 +1,69 @@
+{
+  "prompt": "Build the propere react native document of 10 pages",
+  "commands": {
+    "title": "React Native Development: A Comprehensive Guide",
+    "style": "Business",
+    "formatting": {
+      "font": "Times New Roman",
+      "page_size": "A4",
+      "text_alignment": "Center",
+      "include_toc": false,
+      "include_page_numbers": true,
+      "include_header": true,
+      "include_footer": true
+    },
+    "sections": [
+      {
+        "heading": "Introduction to React Native",
+        "content": "React Native is a powerful JavaScript framework for building native mobile applications for iOS and Android. It allows developers to use their existing JavaScript knowledge to create cross-platform apps with a single codebase. This section provides a brief overview of React Native and its benefits.",
+        "level": 1
+      },
+      {
+        "heading": "Why Choose React Native?",
+        "content": "React Native offers several advantages, including code reusability, faster development cycles, and access to native UI components. It also allows for hot reloading, which means developers can see changes in real-time without having to rebuild the entire application. This section explores the various reasons why React Native is a popular choice for mobile app development.",
+        "level": 2
+      },
+      {
+        "heading": "Setting Up Your Development Environment",
+        "content": "Before you can start building React Native apps, you need to set up your development environment. This involves installing Node.js, the React Native CLI, and either Xcode (for iOS development) or Android Studio (for Android development). This section provides step-by-step instructions on how to configure your environment.",
+        "level": 1
+      },
+      {
+        "heading": "Installing Node.js and npm",
+        "content": "Node.js and npm (Node Package Manager) are essential for React Native development. Node.js is a JavaScript runtime environment, and npm is a package manager that allows you to easily install and manage dependencies. This section guides you through the installation process.",
+        "level": 2
+      },
+      {
+        "heading": "Creating Your First React Native Project",
+        "content": "Once your development environment is set up, you can create your first React Native project using the React Native CLI. This section demonstrates how to use the `react-native init` command to generate a new project with a basic template.",
+        "level": 1
+      },
+      {
+        "heading": "Understanding the Project Structure",
+        "content": "A React Native project has a specific directory structure that includes JavaScript files, native code, and configuration files. This section explains the purpose of each directory and file in the project structure.",
+        "level": 2
+      },
+      {
+        "heading": "Components in React Native",
+        "content": "React Native applications are built using components, which are reusable UI elements. This section introduces the concept of components and explains how to create custom components using JavaScript.",
+        "level": 1
+      },
+      {
+        "heading": "Core Components",
+        "content": "React Native provides a set of core components, such as `View`, `Text`, `Image`, and `TextInput`, that can be used to build basic UI elements. This section describes the most commonly used core components and their properties.",
+        "level": 2
+      },
+      {
+        "heading": "Styling React Native Components",
+        "content": "React Native uses a styling system similar to CSS, but with some differences. Styles are defined using JavaScript objects and applied to components using the `style` prop. This section explains how to style React Native components using the built-in styling system.",
+        "level": 1
+      },
+      {
+        "heading": "Using Flexbox for Layout",
+        "content": "Flexbox is a powerful layout model that allows you to easily arrange and align elements on the screen. React Native uses Flexbox for layout, and this section provides an introduction to Flexbox and how to use it to create responsive layouts.",
+        "level": 2
+      }
+    ]
+  },
+  "output_file": "C:\\Users\\Prateek/Downloads\\React_Native_Development_A_Com_20250601_0151.docx"
+}

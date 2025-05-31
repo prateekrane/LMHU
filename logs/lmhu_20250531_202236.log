@@ -1,0 +1,11 @@
+2025-05-31 20:23:34,558 - ERROR - Command execution failed
+Traceback (most recent call last):
+  File "C:\Users\Prateek\lmhu\core\agent.py", line 13, in execute_commands
+    return generate_ppt_doc(command_json)
+  File "C:\Users\Prateek\lmhu\core\generator_ppt.py", line 683, in generate_ppt_doc
+    _apply_text_box_animation_with_comtypes(filepath, idx, slide.shapes.index(shape), theme_name)
+  File "C:\Users\Prateek\lmhu\core\generator_ppt.py", line 524, in _apply_text_box_animation_with_comtypes
+    slide = presentation.Slides(slide_index + 1)  # COM is 1-based index
+  File "C:\Users\Prateek\AppData\Local\Programs\Python\Python310\lib\site-packages\comtypes\_post_coinit\_cominterface_meta_patcher.py", line 81, in __call__
+    return self.Item(*args, **kw)
+_ctypes.COMError: (-2147188160, None, ('Slides (unknown member) : Integer out of range. 2 is not in the valid range of 1 to 1.', 'Microsoft PowerPoint', '', 0, None))

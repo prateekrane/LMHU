@@ -1,0 +1,68 @@
+{
+  "prompt": "Build the propere react native document of 10 pages",
+  "commands": {
+    "title": "React Native Comprehensive Guide",
+    "style": "Professional",
+    "formatting": {
+      "font": "Times New Roman",
+      "page_size": "A4",
+      "text_alignment": "Left",
+      "include_page_numbers": true,
+      "include_header": true,
+      "include_footer": true
+    },
+    "sections": [
+      {
+        "heading": "Introduction to React Native",
+        "content": "React Native is a JavaScript framework for writing real, natively rendering mobile applications for iOS and Android. It's based on React, Facebook's JavaScript library for building user interfaces, but instead of targeting the browser, it targets mobile platforms. This means you can use the same React concepts and patterns to build mobile apps that look and feel truly native.",
+        "level": 1
+      },
+      {
+        "heading": "Why Choose React Native?",
+        "content": "Several key advantages make React Native a compelling choice for mobile development:\n\n*   **Cross-Platform Development:** Write code once and deploy it on both iOS and Android.\n*   **Native Performance:** Components render to native UI elements, providing a smooth and responsive user experience.\n*   **Hot Reloading:** See changes in your app instantly without recompiling.\n*   **Large Community:** Benefit from a vibrant and supportive community of developers.\n*   **Code Reusability:** Share code between web and mobile applications if you're already using React.",
+        "level": 2
+      },
+      {
+        "heading": "Setting Up Your Development Environment",
+        "content": "Before you can start building React Native applications, you'll need to set up your development environment. This involves installing Node.js, a package manager like npm or Yarn, a code editor, and the React Native CLI.  You'll also need to install the appropriate SDKs and emulators for iOS and Android development.\n\nRefer to the official React Native documentation for detailed instructions on setting up your environment for your specific operating system: [https://reactnative.dev/docs/environment-setup](https://reactnative.dev/docs/environment-setup)",
+        "level": 1
+      },
+      {
+        "heading": "Creating Your First React Native App",
+        "content": "Once your environment is set up, you can create a new React Native project using the following command:\n\n```bash\nnpx react-native init MyAwesomeApp\n```\n\nThis command will create a new directory named `MyAwesomeApp` with all the necessary files and dependencies for your project.  Navigate to the directory and start the development server:\n\n```bash\ncd MyAwesomeApp\nnpx react-native start\n```\n\nTo run your app on an emulator or device, use the following commands (in a separate terminal window):\n\n```bash\nnpx react-native run-ios  # For iOS\nnpx react-native run-android # For Android\n```",
+        "level": 1
+      },
+      {
+        "heading": "Understanding React Native Components",
+        "content": "React Native apps are built using components. Components are reusable building blocks that define the structure and behavior of your application's UI.  React Native provides a set of core components like `View`, `Text`, `Image`, `TextInput`, and `Button` that you can use to create your own custom components.",
+        "level": 1
+      },
+      {
+        "heading": "Core Components",
+        "content": "*   **View:** The most fundamental building block for creating UI. It's similar to a `<div>` in HTML.\n*   **Text:** Used to display text content.\n*   **Image:** Used to display images.\n*   **TextInput:** Allows users to enter text input.\n*   **Button:** A simple button component.",
+        "level": 2
+      },
+      {
+        "heading": "Styling React Native Components",
+        "content": "React Native uses a style system similar to CSS, but with some key differences. Styles are defined using JavaScript objects, and you can apply styles to components using the `style` prop.  React Native also supports inline styles and style sheets for better organization.",
+        "level": 1
+      },
+      {
+        "heading": "Example Styling",
+        "content": "```javascript\nconst styles = StyleSheet.create({\n  container: {\n    flex: 1,\n    backgroundColor: '#fff',\n    alignItems: 'center',\n    justifyContent: 'center',\n  },\n  text: {\n    fontSize: 20,\n    fontWeight: 'bold',\n  },\n});\n```\n\n```jsx\n<View style={styles.container}>\n  <Text style={styles.text}>Hello, React Native!</Text>\n</View>\n```",
+        "level": 2
+      },
+      {
+        "heading": "Handling User Input",
+        "content": "React Native provides components like `TextInput` and `Button` for handling user input. You can use event handlers like `onChangeText` and `onPress` to respond to user interactions and update your application's state.",
+        "level": 1
+      },
+      {
+        "heading": "State Management",
+        "content": "State management is crucial for building complex React Native applications.  React Native uses React's built-in `useState` hook for managing component state.  For larger applications, you might consider using more advanced state management libraries like Redux or MobX.",
+        "level": 1
+      }
+    ]
+  },
+  "output_file": "C:\\Users\\Prateek/Downloads\\React_Native_Comprehensive_Gui_20250601_0203.docx"
+}

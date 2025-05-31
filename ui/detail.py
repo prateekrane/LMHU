@@ -337,13 +337,13 @@ class DetailScreen:
         
         # Row 3: Additional Options
         # Include Table of Contents
-        self.toc_var = tk.BooleanVar(value=True)
-        ttk.Checkbutton(
-            options_frame,
-            text="Include Table of Contents",
-            variable=self.toc_var,
-            style="Custom.TCheckbutton"
-        ).grid(row=2, column=0, columnspan=2, padx=(0, 20), pady=5, sticky="w")
+        # self.toc_var = tk.BooleanVar(value=True)
+        # ttk.Checkbutton(
+        #     options_frame,
+        #     text="Include Table of Contents",
+        #     variable=self.toc_var,
+        #     style="Custom.TCheckbutton"
+        # ).grid(row=2, column=0, columnspan=2, padx=(0, 20), pady=5, sticky="w")
         
         # Include Speaker Notes
         self.notes_var = tk.BooleanVar(value=True)
@@ -413,7 +413,7 @@ class DetailScreen:
         )
         self.font_combo.grid(row=0, column=3, padx=(0, 0), pady=5, sticky="w")
         
-        # Row 2: Page Size and Margins
+        # Row 2: Page Size and Text Alignment
         # Page Size
         tk.Label(
             options_frame,
@@ -433,34 +433,34 @@ class DetailScreen:
         )
         self.page_size_combo.grid(row=1, column=1, padx=(0, 20), pady=5, sticky="w")
         
-        # Margins
+        # Text Alignment
         tk.Label(
             options_frame,
-            text="Margins:",
+            text="Text Alignment:",
             **label_style
         ).grid(row=1, column=2, padx=(0, 10), pady=5, sticky="e")
         
-        self.margin_var = tk.StringVar(value="Normal")
-        margins = ["Normal", "Narrow", "Wide", "Custom"]
-        self.margin_combo = ttk.Combobox(
+        self.alignment_var = tk.StringVar(value="Left")
+        alignments = ["Left", "Center", "Right", "Justify", "Distribute"]
+        self.alignment_combo = ttk.Combobox(
             options_frame,
-            textvariable=self.margin_var,
-            values=margins,
+            textvariable=self.alignment_var,
+            values=alignments,
             state="readonly",
             width=15,
             font=("Helvetica", 10)
         )
-        self.margin_combo.grid(row=1, column=3, padx=(0, 0), pady=5, sticky="w")
+        self.alignment_combo.grid(row=1, column=3, padx=(0, 0), pady=5, sticky="w")
         
         # Row 3: Additional Options
         # Include Table of Contents
-        self.toc_var = tk.BooleanVar(value=True)
-        ttk.Checkbutton(
-            options_frame,
-            text="Include Table of Contents",
-            variable=self.toc_var,
-            style="Custom.TCheckbutton"
-        ).grid(row=2, column=0, columnspan=2, padx=(0, 20), pady=5, sticky="w")
+        # self.toc_var = tk.BooleanVar(value=True)
+        # ttk.Checkbutton(
+        #     options_frame,
+        #     text="Include Table of Contents",
+        #     variable=self.toc_var,
+        #     style="Custom.TCheckbutton"
+        # ).grid(row=2, column=0, columnspan=2, padx=(0, 20), pady=5, sticky="w")
         
         # Include Page Numbers
         self.page_num_var = tk.BooleanVar(value=True)
@@ -622,7 +622,6 @@ class DetailScreen:
                 "theme": self.theme_var.get(),
                 "font": self.font_var.get(),
                 "color_scheme": self.color_scheme_var.get(),
-                "include_toc": self.toc_var.get(),
                 "include_notes": self.notes_var.get()
             }
             
@@ -646,7 +645,6 @@ Presentation Options:
 - Theme: {options['theme']}
 - Font: {options['font']}
 - Color Scheme: {options['color_scheme']}
-- Include Table of Contents: {options['include_toc']}
 - Include Speaker Notes: {options['include_notes']}
 
 Theme Requirements:
@@ -659,7 +657,6 @@ Return a JSON with the structure:
     "theme": "{options['theme']}",
     "font": "{options['font']}",
     "color_scheme": "{options['color_scheme']}",
-    "include_toc": {str(options['include_toc']).lower()},
     "include_notes": {str(options['include_notes']).lower()},
     "slides": [
         {{
@@ -694,8 +691,7 @@ For Elegant theme: Include sophisticated design elements, charts, drawings, and 
                 "doc_style": self.doc_style_var.get(),
                 "font": self.font_var.get(),
                 "page_size": self.page_size_var.get(),
-                "margins": self.margin_var.get(),
-                "include_toc": self.toc_var.get(),
+                "text_alignment": self.alignment_var.get(),
                 "include_page_numbers": self.page_num_var.get(),
                 "include_header": self.header_var.get(),
                 "include_footer": self.footer_var.get()
@@ -711,8 +707,7 @@ Document Options:
 - Document Style: {options['doc_style']}
 - Font: {options['font']}
 - Page Size: {options['page_size']}
-- Margins: {options['margins']}
-- Include Table of Contents: {options['include_toc']}
+- Text Alignment: {options['text_alignment']}
 - Include Page Numbers: {options['include_page_numbers']}
 - Include Header: {options['include_header']}
 - Include Footer: {options['include_footer']}
@@ -724,8 +719,7 @@ Return a JSON with the structure:
     "formatting": {{
         "font": "{options['font']}",
         "page_size": "{options['page_size']}",
-        "margins": "{options['margins']}",
-        "include_toc": {str(options['include_toc']).lower()},
+        "text_alignment": "{options['text_alignment']}",
         "include_page_numbers": {str(options['include_page_numbers']).lower()},
         "include_header": {str(options['include_header']).lower()},
         "include_footer": {str(options['include_footer']).lower()}

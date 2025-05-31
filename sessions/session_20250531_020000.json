@@ -1,0 +1,90 @@
+{
+  "prompt": "Build PPT based on global warming",
+  "commands": {
+    "title": "Global Warming: Understanding the Crisis and Finding Solutions",
+    "subtitle": "A Concise Overview",
+    "theme": "Professional",
+    "font": "Calibri",
+    "color_scheme": "Default",
+    "include_toc": false,
+    "include_notes": false,
+    "slides": [
+      {
+        "title": "What is Global Warming?",
+        "content": "Global warming refers to the long-term increase in Earth's average surface temperature. It is primarily caused by human activities, mainly the burning of fossil fuels, which releases greenhouse gases into the atmosphere. These gases trap heat and cause the planet to warm. The consequences are far-reaching, impacting weather patterns, sea levels, and ecosystems.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Simple rectangular shape behind the title for visual separation."
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Greenhouse Effect",
+        "content": "The greenhouse effect is a natural process that warms the Earth's surface. When solar energy reaches our planet, some of it is absorbed and warms the Earth, and the rest is radiated back into space. Greenhouse gases, such as carbon dioxide (CO2), methane (CH4), and nitrous oxide (N2O), trap some of this outgoing radiation, retaining heat in the atmosphere. Human activities are intensifying this effect, leading to global warming.",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Simple line under the title for emphasis."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Evidence of Global Warming",
+        "content": "Multiple lines of evidence confirm that the Earth is warming:\n\n*   Rising global temperatures\n*   Melting glaciers and ice sheets\n*   Sea level rise\n*   Changes in precipitation patterns\n*   More frequent and intense extreme weather events",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Use of bullet points for clear presentation of evidence."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Impacts of Global Warming",
+        "content": "Global warming has significant impacts on our planet and society:\n\n*   Ecosystem disruption and biodiversity loss\n*   Increased frequency and intensity of extreme weather events (heatwaves, droughts, floods)\n*   Sea level rise and coastal erosion\n*   Threats to food security and water resources\n*   Human health impacts",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Use of bullet points for highlighting key impacts."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Solutions to Global Warming",
+        "content": "Addressing global warming requires a global effort. Key solutions include:\n\n*   Transitioning to renewable energy sources (solar, wind, hydro)\n*   Improving energy efficiency\n*   Reducing deforestation and promoting reforestation\n*   Developing and deploying carbon capture technologies\n*   Adopting sustainable agricultural practices\n*   International cooperation and policy changes",
+        "notes": null,
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 24,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Simple call to action shape at the bottom: 'Let's Act Now!'"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "output_file": "C:\\Users\\Prateek/Downloads\\Global_Warming_Understanding_t_20250531_0200.pptx"
+}
