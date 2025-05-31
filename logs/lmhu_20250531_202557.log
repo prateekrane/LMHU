@@ -1,9 +1,0 @@
-2025-05-31 20:26:54,888 - ERROR - Command execution failed
-Traceback (most recent call last):
-  File "C:\Users\Prateek\lmhu\core\agent.py", line 13, in execute_commands
-    return generate_ppt_doc(command_json)
-  File "C:\Users\Prateek\lmhu\core\generator_ppt.py", line 687, in generate_ppt_doc
-    _apply_text_box_animation_with_comtypes(filepath, idx, slide.shapes.index(shape), theme_name)
-  File "C:\Users\Prateek\lmhu\core\generator_ppt.py", line 526, in _apply_text_box_animation_with_comtypes
-    raise ValueError(f"Invalid slide_index: {slide_index}. Valid range is 0 to {len(presentation.Slides) - 1}.")
-ValueError: Invalid slide_index: 1. Valid range is 0 to 0.

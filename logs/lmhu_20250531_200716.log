@@ -1,9 +1,0 @@
-2025-05-31 20:07:57,725 - ERROR - Command execution failed
-Traceback (most recent call last):
-  File "C:\Users\Prateek\lmhu\core\agent.py", line 13, in execute_commands
-    return generate_ppt_doc(command_json)
-  File "C:\Users\Prateek\lmhu\core\generator_ppt.py", line 549, in generate_ppt_doc
-    _apply_text_box_animation(title_shape, "shape_build")
-  File "C:\Users\Prateek\lmhu\core\generator_ppt.py", line 519, in _apply_text_box_animation
-    shape.AnimationSettings.EntryEffect = effect_id
-AttributeError: 'SlidePlaceholder' object has no attribute 'AnimationSettings'

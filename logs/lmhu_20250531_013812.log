@@ -1,9 +1,0 @@
-2025-05-31 01:38:47,858 - ERROR - Command execution failed
-Traceback (most recent call last):
-  File "C:\Users\Prateek\lmhu\core\agent.py", line 13, in execute_commands
-    return generate_ppt_doc(command_json)
-  File "C:\Users\Prateek\lmhu\core\generator_ppt.py", line 805, in generate_ppt_doc
-    content_shape = slide.placeholders[1]
-  File "C:\Users\Prateek\AppData\Local\Programs\Python\Python310\lib\site-packages\pptx\shapes\shapetree.py", line 766, in __getitem__
-    raise KeyError("no placeholder on this slide with idx == %d" % idx)
-KeyError: 'no placeholder on this slide with idx == 1'

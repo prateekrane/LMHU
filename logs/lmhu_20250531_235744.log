@@ -1,9 +1,0 @@
-2025-05-31 23:58:22,996 - ERROR - Command execution failed
-Traceback (most recent call last):
-  File "C:\Users\Prateek\lmhu\core\agent.py", line 13, in execute_commands
-    return generate_ppt_doc(command_json)
-  File "C:\Users\Prateek\lmhu\core\generator_ppt.py", line 600, in generate_ppt_doc
-    _apply_text_box_animation_with_comtypes(temp_filepath, 0, 0, "bounce")
-  File "C:\Users\Prateek\lmhu\core\generator_ppt.py", line 510, in _apply_text_box_animation_with_comtypes
-    pplib = comtypes.gen.PowerPoint.constants
-AttributeError: module 'comtypes.gen' has no attribute 'PowerPoint'
