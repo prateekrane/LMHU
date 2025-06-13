@@ -1,0 +1,204 @@
+{
+  "prompt": "Build PPT for Web Technology",
+  "commands": {
+    "title": "Web Technology: An Overview",
+    "subtitle": "Exploring the Landscape of Modern Web Development",
+    "theme": "Corporate",
+    "font": "Calibri",
+    "color_scheme": "Default",
+    "include_notes": true,
+    "slides": [
+      {
+        "title": "Introduction to Web Technology",
+        "content": "Web technology encompasses the tools and techniques used to create and interact with web content. It's a constantly evolving field, driving innovation across various industries.",
+        "notes": "Welcome the audience and provide a brief overview of the presentation. Highlight the importance of web technology in today's world.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "transition",
+              "description": "Fade transition"
+            },
+            {
+              "type": "shape",
+              "description": "Rectangle shape with subtle gradient as a background element"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Client-Side Technologies",
+        "content": "Focuses on what the user sees and interacts with directly:\n\n*   **HTML:** Structure of the web page\n*   **CSS:** Styling and presentation\n*   **JavaScript:** Interactivity and dynamic content",
+        "notes": "Explain the role of each client-side technology. Emphasize the importance of a good user experience.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Callout shape pointing to each technology"
+            },
+            {
+              "type": "transition",
+              "description": "Push transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Server-Side Technologies",
+        "content": "Handles the logic and data processing behind the scenes:\n\n*   **Languages:** Python, Java, PHP, Node.js\n*   **Databases:** MySQL, PostgreSQL, MongoDB\n*   **Frameworks:** Django, Spring, Laravel",
+        "notes": "Discuss the various server-side technologies and their respective advantages. Mention the role of databases in storing and managing data.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Rounded rectangle shapes for each technology group"
+            },
+            {
+              "type": "transition",
+              "description": "Push transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Web Development Frameworks",
+        "content": "Frameworks provide a structure for building web applications efficiently. Examples:\n\n*   **Frontend:** React, Angular, Vue.js\n*   **Backend:** Express.js, Django, Ruby on Rails",
+        "notes": "Explain what frameworks are and why they are important for efficient development. Briefly describe some popular frontend and backend frameworks.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Arrow shapes connecting frontend and backend frameworks"
+            },
+            {
+              "type": "transition",
+              "description": "Cover transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "API (Application Programming Interface)",
+        "content": "APIs allow different applications to communicate with each other. Crucial for modern web services and integrations.",
+        "notes": "Explain the concept of APIs and their importance in connecting different systems. Use a simple analogy to illustrate the concept.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "drawing",
+              "description": "Diagram illustrating how APIs connect different applications"
+            },
+            {
+              "type": "transition",
+              "description": "Fade transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Web Security",
+        "content": "Protecting web applications from threats:\n\n*   **Authentication:** Verifying user identity\n*   **Authorization:** Controlling access to resources\n*   **Encryption:** Protecting sensitive data",
+        "notes": "Highlight the importance of web security and the different measures that can be taken to protect web applications from attacks. Discuss common vulnerabilities like SQL injection and cross-site scripting.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Shield shape to represent security"
+            },
+            {
+              "type": "transition",
+              "description": "Uncover transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Responsive Web Design",
+        "content": "Ensuring websites adapt to different screen sizes and devices. Essential for a good user experience on all platforms.",
+        "notes": "Explain the concept of responsive web design and its importance in providing a consistent user experience across different devices. Mention techniques like media queries and flexible layouts.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "drawing",
+              "description": "Mockups of a website displayed on different devices (desktop, tablet, mobile)"
+            },
+            {
+              "type": "transition",
+              "description": "Wipe transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Future of Web Technology",
+        "content": "Emerging trends shaping the web:\n\n*   **AI and Machine Learning:** Personalized experiences\n*   **Web3 and Blockchain:** Decentralized applications\n*   **Progressive Web Apps (PWAs):** App-like experiences in the browser",
+        "notes": "Discuss the future trends in web technology and their potential impact. Mention technologies like AI, Web3, and PWAs.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Circle shapes representing each trend, connected by lines"
+            },
+            {
+              "type": "transition",
+              "description": "Reveal transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Web Technology Market Share (Example)",
+        "content": "Illustrative market share data for popular web frameworks.",
+        "notes": "Present a sample chart showing the market share of different web technologies. This is a placeholder, replace with actual data and a relevant chart type.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "chart",
+              "description": "Pie chart showing market share of different web frameworks"
+            },
+            {
+              "type": "transition",
+              "description": "Morph transition"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Conclusion & Q&A",
+        "content": "Web technology is a dynamic and ever-evolving field. Continuous learning and adaptation are crucial for success.",
+        "notes": "Summarize the key takeaways from the presentation and open the floor for questions.",
+        "formatting": {
+          "title_font_size": 44,
+          "content_font_size": 28,
+          "elements": [
+            {
+              "type": "shape",
+              "description": "Thank you message with company logo"
+            },
+            {
+              "type": "transition",
+              "description": "Fade transition"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "output_file": "C:\\Users\\Prateek/Downloads\\Web_Technology_An_Overview_20250614_0020.pptx"
+}

@@ -1,0 +1,2 @@
+2025-06-13 20:32:42,435 - ERROR - Gemini API Request Error (attempt 1): 503 Server Error: Service Unavailable for url: https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent?key=AIzaSyBPfn1tsD0Larpo1xnIyeaBl52CDrzGjQE
+2025-06-13 20:32:46,975 - ERROR - Gemini API Request Error (attempt 2): 503 Server Error: Service Unavailable for url: https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent?key=AIzaSyBPfn1tsD0Larpo1xnIyeaBl52CDrzGjQE

@@ -577,12 +577,12 @@ class DetailScreen:
                 gemini_full_response = call_gemini(gen_prompt)
                 
                 if not gemini_full_response or "candidates" not in gemini_full_response or not gemini_full_response["candidates"]:
-                    raise RuntimeError("Gemini API returned an unexpected or empty response structure.")
+                    raise RuntimeError("AI service returned an unexpected or empty response structure.")
 
                 extracted_text = gemini_full_response["candidates"][0].get("content", {}).get("parts", [{}])[0].get("text", "")
                 
                 if not extracted_text.strip():
-                    raise RuntimeError("Gemini API returned empty text content in the expected field.")
+                    raise RuntimeError("AI service returned empty text content in the expected field.")
 
                 # Clean and parse JSON
                 cleaned_json_string = extracted_text.strip()

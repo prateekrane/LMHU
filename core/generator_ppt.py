@@ -13,6 +13,18 @@ import comtypes.client
 import tempfile
 import win32com.client
 
+def _clean_text(text):
+    """Clean text by removing markdown characters and normalizing whitespace."""
+    if not text:
+        return ""
+    
+    # Remove markdown characters like *, **, and leading bullets
+    import re
+    text = re.sub(r'^[\s\*\-]+', '', text)  # Remove leading *, -, or numbers with dot
+    text = text.replace('**', '').replace('*', '')  # Remove asterisks
+    
+    return text.strip()
+
 def _get_theme_colors(theme_name):
     # Define theme-specific color palettes
     color_palettes = {
@@ -416,28 +428,103 @@ def _get_topic_based_chart_data(topic):
     """Generate appropriate chart data based on the presentation topic."""
     pass
 
-def _apply_comtypes_transitions(filepath, transition_effect, transition_duration):
-    """Apply slide transitions using comtypes based on the provided effect and duration."""
-    comtypes.CoInitialize()  # Initialize COM
+def _apply_theme_animations(filepath, theme_name):
+    """Apply theme-specific animations to the presentation using pywin32."""
+    powerpoint = None
+    presentation = None
     try:
-        powerpoint = comtypes.client.CreateObject("PowerPoint.Application")
-        powerpoint.Visible = 1
+        # Create PowerPoint application instance
+        powerpoint = win32com.client.Dispatch("PowerPoint.Application")
+        powerpoint.DisplayAlerts = False
+        powerpoint.Visible = False
 
-        presentation = powerpoint.Presentations.Open(filepath)
+        # Open the presentation
+        presentation = powerpoint.Presentations.Open(
+            filepath,
+            WithWindow=False,
+            ReadOnly=False
+        )
 
-        for slide in presentation.Slides:
+        # Define theme-specific animation configurations
+        theme_configs = {
+            "Professional": {
+                "slide_transition": "ppEffectFade",
+                "title_animation": "ppEffectFade",
+                "content_animation": "ppEffectFade",
+                "transition_duration": 1.0
+            },
+            "Creative": {
+                "slide_transition": "ppEffectZoom",
+                "title_animation": "ppEffectZoom",
+                "content_animation": "ppEffectFloat",
+                "transition_duration": 1.5
+            },
+            "Corporate": {
+                "slide_transition": "ppEffectFly",
+                "title_animation": "ppEffectFly",
+                "content_animation": "ppEffectFade",
+                "transition_duration": 1.2
+            },
+            "Modern": {
+                "slide_transition": "ppEffectFloat",
+                "title_animation": "ppEffectFloat",
+                "content_animation": "ppEffectZoom",
+                "transition_duration": 1.3
+            },
+            "Elegant": {
+                "slide_transition": "ppEffectFade",
+                "title_animation": "ppEffectFade",
+                "content_animation": "ppEffectFly",
+                "transition_duration": 1.0
+            }
+        }
+
+        # Get configuration for the theme
+        config = theme_configs.get(theme_name, theme_configs["Professional"])
+
+        # Apply animations to each slide
+        for slide_index, slide in enumerate(presentation.Slides):
+            # Apply slide transition
             slide.SlideShowTransition.EntryEffect = getattr(
-                comtypes.gen.PowerPoint.PpEntryEffect,
-                f"ppEffect{transition_effect.capitalize()}",
-                0
+                powerpoint.Enum, config["slide_transition"], powerpoint.Enum.ppEffectFade
             )
-            slide.SlideShowTransition.Duration = transition_duration
+            slide.SlideShowTransition.Duration = config["transition_duration"]
 
+            # Apply text animations
+            for shape_index, shape in enumerate(slide.Shapes):
+                if shape.HasTextFrame and shape.TextFrame.Text.strip():
+                    # Determine animation type based on shape type
+                    if shape_index == 1:  # Usually the title
+                        animation_type = config["title_animation"]
+                    else:
+                        animation_type = config["content_animation"]
+                    
+                    # Apply animation
+                    shape.AnimationSettings.Animate = True
+                    shape.AnimationSettings.EntryEffect = getattr(
+                        powerpoint.Enum, animation_type, powerpoint.Enum.ppEffectFade
+                    )
+                    shape.AnimationSettings.AdvanceMode = powerpoint.Enum.ppAdvanceOnClick
+
+        # Save the presentation
         presentation.Save()
         presentation.Close()
         powerpoint.Quit()
+
+    except Exception as e:
+        print(f"Animation application error: {str(e)}")
+        # Continue without animations if there's an error
     finally:
-        comtypes.CoUninitialize()  # Uninitialize COM
+        if presentation:
+            try:
+                presentation.Close()
+            except:
+                pass
+        if powerpoint:
+            try:
+                powerpoint.Quit()
+            except:
+                pass
 
 def _apply_text_box_animation_with_pywin(filepath, slide_index, shape_index, animation_type):
     """Apply animation to a text box using pywin32."""
@@ -511,11 +598,11 @@ def generate_ppt_doc(data):
 
         # Apply title and subtitle
         title_shape = slide.shapes.title
-        title_shape.text = data.get("title", "Untitled Presentation")
+        title_shape.text = _clean_text(data.get("title", "Untitled Presentation"))
         _apply_font(title_shape, font_name, theme_info["title_font_size"], theme_colors["primary"], bold=True)
 
         subtitle_shape = slide.placeholders[1]
-        subtitle_shape.text = data.get("subtitle", "")
+        subtitle_shape.text = _clean_text(data.get("subtitle", ""))
         _apply_font(subtitle_shape, font_name, theme_info["subtitle_font_size"], theme_colors["secondary"])
 
         # Process remaining slides
@@ -530,12 +617,12 @@ def generate_ppt_doc(data):
 
             # Apply content
             title_shape = slide.shapes.title
-            title_shape.text = slide_data.get("title", "")
+            title_shape.text = _clean_text(slide_data.get("title", ""))
             _apply_font(title_shape, font_name, theme_info["title_font_size"], theme_colors["primary"], bold=True)
 
             if not is_toc:
                 content_shape = slide.placeholders[1]
-                content_shape.text = slide_data.get("content", "")
+                content_shape.text = _clean_text(slide_data.get("content", ""))
                 _apply_font(content_shape, font_name, theme_info["content_font_size"], theme_colors["text"])
             else:
                 # Handle TOC slide
@@ -548,7 +635,7 @@ def generate_ppt_doc(data):
                 for line in content.split('\n'):
                     if line.strip():
                         p = tf.add_paragraph()
-                        p.text = line.strip()
+                        p.text = _clean_text(line.strip())
                         p.alignment = PP_ALIGN.LEFT
                         for run in p.runs:
                             run.font.name = font_name
@@ -569,48 +656,12 @@ def generate_ppt_doc(data):
         # Save to final location
         prs.save(final_filepath)
 
-        # Apply animations only to the final file
-        if "animation" in theme_info["elements"]:
-            try:
-                comtypes.CoInitialize()
-                powerpoint = comtypes.client.CreateObject("PowerPoint.Application")
-                powerpoint.DisplayAlerts = 0
-                powerpoint.Visible = 0
-
-                # Open the final presentation
-                presentation = powerpoint.Presentations.Open(
-                    final_filepath,
-                    WithWindow=0,
-                    ReadOnly=0
-                )
-
-                theme_animations = {
-                    "Creative": {"title": "zoom", "content": "float"},
-                    "Corporate": {"title": "fly_in", "content": "fade"},
-                    "Modern": {"title": "float", "content": "zoom"},
-                    "Elegant": {"title": "fade", "content": "fly_in"}
-                }
-
-                animations = theme_animations.get(theme_name, {})
-                if animations:
-                    for idx, slide in enumerate(presentation.Slides):
-                        if idx == 0:  # Title slide
-                            shape = slide.Shapes.Title
-                            _apply_text_box_animation_with_pywin(final_filepath, idx, shape.ZOrderPosition - 1, animations.get("title", "fade"))
-                        else:  # Content slides
-                            for shape in slide.Shapes:
-                                if shape.HasTextFrame:
-                                    _apply_text_box_animation_with_pywin(final_filepath, idx, shape.ZOrderPosition - 1, animations.get("content", "fade"))
-
-                presentation.Save()
-                presentation.Close()
-
-            except Exception as e:
-                print(f"Animation error: {str(e)}")
-            finally:
-                if powerpoint:
-                    powerpoint.Quit()
-                comtypes.CoUninitialize()
+        # Apply theme-based animations
+        try:
+            _apply_theme_animations(final_filepath, theme_name)
+        except Exception as e:
+            print(f"Animation application failed: {str(e)}")
+            # Continue without animations if there's an error
 
         return final_filepath
 
