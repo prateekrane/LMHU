@@ -414,69 +414,7 @@ def _apply_theme_elements(slide, theme_info, formatting, theme_colors, topic="")
 
 def _get_topic_based_chart_data(topic):
     """Generate appropriate chart data based on the presentation topic."""
-    topic = topic.lower()
-    
-    # Define topic-specific chart data
-    chart_data = {
-        "business": {
-            "categories": ["Q1", "Q2", "Q3", "Q4"],
-            "series": [
-                ("Revenue", [30, 45, 35, 50]),
-                ("Growth", [40, 55, 45, 60])
-            ]
-        },
-        "technology": {
-            "categories": ["2020", "2021", "2022", "2023"],
-            "series": [
-                ("Adoption", [20, 35, 50, 75]),
-                ("Innovation", [30, 45, 60, 85])
-            ]
-        },
-        "education": {
-            "categories": ["Year 1", "Year 2", "Year 3", "Year 4"],
-            "series": [
-                ("Performance", [60, 75, 85, 90]),
-                ("Progress", [50, 65, 80, 95])
-            ]
-        },
-        "health": {
-            "categories": ["Jan", "Apr", "Jul", "Oct"],
-            "series": [
-                ("Wellness", [70, 75, 80, 85]),
-                ("Recovery", [60, 70, 75, 80])
-            ]
-        },
-        "environment": {
-            "categories": ["2019", "2020", "2021", "2022"],
-            "series": [
-                ("Conservation", [40, 50, 60, 70]),
-                ("Impact", [30, 45, 55, 65])
-            ]
-        },
-        "finance": {
-            "categories": ["Q1", "Q2", "Q3", "Q4"],
-            "series": [
-                ("Investment", [25, 35, 45, 55]),
-                ("Returns", [20, 30, 40, 50])
-            ]
-        }
-    }
-    
-    # Default chart data if no specific topic is matched
-    default_data = {
-        "categories": ["Q1", "Q2", "Q3", "Q4"],
-        "series": [
-            ("Series 1", [30, 45, 35, 50]),
-            ("Series 2", [40, 55, 45, 60])
-        ]
-    }
-    
-    # Find matching topic data or use default
-    for category in chart_data:
-        if category in topic:
-            return chart_data[category]
-    
-    return default_data
+    pass
 
 def _apply_comtypes_transitions(filepath, transition_effect, transition_duration):
     """Apply slide transitions using comtypes based on the provided effect and duration."""
@@ -501,127 +439,100 @@ def _apply_comtypes_transitions(filepath, transition_effect, transition_duration
     finally:
         comtypes.CoUninitialize()  # Uninitialize COM
 
-def _apply_text_box_animation_with_comtypes(filepath, slide_index, shape_index, animation_type):
-    """Apply animation to a text box using comtypes."""
+def _apply_text_box_animation_with_pywin(filepath, slide_index, shape_index, animation_type):
+    """Apply animation to a text box using pywin32."""
     powerpoint = None
     presentation = None
     try:
-        # Initialize COM only once
-        comtypes.CoInitialize()
-        
         # Create PowerPoint application instance
-        powerpoint = comtypes.client.CreateObject("PowerPoint.Application")
-        powerpoint.DisplayAlerts = 0  # Disable alerts
-        powerpoint.Visible = 0  # Make PowerPoint invisible
-        
-        # Open presentation with a timeout
-        import time
-        start_time = time.time()
-        timeout = 10  # 10 seconds timeout
-        
-        while time.time() - start_time < timeout:
-            try:
-                presentation = powerpoint.Presentations.Open(
-                    filepath,
-                    WithWindow=0,  # Don't show window
-                    ReadOnly=0     # Read-write mode
-                )
-                break
-            except Exception as e:
-                if time.time() - start_time >= timeout:
-                    print(f"Timeout opening presentation: {str(e)}")
-                    return
-                time.sleep(0.5)  # Wait before retrying
-        
-        if not presentation:
-            print("Failed to open presentation")
-            return
-            
-        try:
-            # Get the slide and shape
-            slide = presentation.Slides.Item(slide_index + 1)
-            shape = slide.Shapes.Item(shape_index + 1)
-            
-            # Define animation effects mapping
-            animation_effects = {
-                "fade": 0x17,      # ppAnimateByFade
-                "float_in": 0x0B,  # ppAnimateByFloat
-                "zoom": 0x0E,      # ppAnimateByZoom
-                "fly_in": 0x04     # ppAnimateByFly
-            }
-            
-            # Get effect number (default to fade)
-            effect_number = animation_effects.get(animation_type.lower(), 0x17)
-            
-            # Apply animation settings
-            animation = shape.AnimationSettings
-            animation.Animate = -1
-            animation.EntryEffect = effect_number
-            
-            # Save without prompting
-            presentation.Save()
-            
-        except Exception as e:
-            print(f"Animation error: {str(e)}")
-        finally:
-            if presentation:
-                try:
-                    presentation.Close()
-                except:
-                    pass
+        powerpoint = win32com.client.Dispatch("PowerPoint.Application")
+        powerpoint.DisplayAlerts = False  # Disable alerts
+        powerpoint.Visible = False  # Make PowerPoint invisible
+
+        # Open presentation
+        presentation = powerpoint.Presentations.Open(
+            filepath,
+            WithWindow=False,  # Don't show window
+            ReadOnly=False     # Read-write mode
+        )
+
+        # Get the slide and shape
+        slide = presentation.Slides(slide_index + 1)
+        shape = slide.Shapes(shape_index + 1)
+
+        # Define animation effects mapping
+        animation_effects = {
+            "fade": 0x17,      # ppEffectFade
+            "float_in": 0x0B,  # ppEffectFloat
+            "zoom": 0x0E,      # ppEffectZoom
+            "fly_in": 0x04     # ppEffectFly
+        }
+
+        # Get effect number (default to fade)
+        effect_number = animation_effects.get(animation_type.lower(), 0x17)
+
+        # Apply animation settings
+        animation = shape.AnimationSettings
+        animation.Animate = True  # Enable animation
+        animation.EntryEffect = effect_number
+
+        # Save the presentation
+        presentation.Save()
+
     except Exception as e:
-        print(f"PowerPoint error: {str(e)}")
+        print(f"Animation error: {str(e)}")
     finally:
+        if presentation:
+            try:
+                presentation.Close()
+            except Exception as e:
+                print(f"Error closing presentation: {str(e)}")
         if powerpoint:
             try:
                 powerpoint.Quit()
-            except:
-                pass
-        try:
-            comtypes.CoUninitialize()
-        except:
-            pass
+            except Exception as e:
+                print(f"Error quitting PowerPoint: {str(e)}")
 
 def generate_ppt_doc(data):
     temp_files = []
     powerpoint = None
     try:
         prs = Presentation()
-        
+
         # Get theme and color settings
         theme_info = _apply_theme(prs, data.get("theme", "Professional"))
         theme_colors = _apply_color_scheme(prs, data.get("color_scheme", "Default"), data.get("theme", "Professional"))
         font_name = data.get("font", "Calibri")
         theme_name = data.get("theme", "Professional")
-        
+
         # Create title slide
         title_slide_layout = prs.slide_layouts[0]
         slide = prs.slides.add_slide(title_slide_layout)
-        
+
         # Apply title and subtitle
         title_shape = slide.shapes.title
         title_shape.text = data.get("title", "Untitled Presentation")
         _apply_font(title_shape, font_name, theme_info["title_font_size"], theme_colors["primary"], bold=True)
-        
+
         subtitle_shape = slide.placeholders[1]
         subtitle_shape.text = data.get("subtitle", "")
         _apply_font(subtitle_shape, font_name, theme_info["subtitle_font_size"], theme_colors["secondary"])
-        
+
         # Process remaining slides
         slides_data = data.get("slides", [])
         include_toc = data.get("include_toc", True)
-        
+
         # Create all slides first
         for idx, slide_data in enumerate(slides_data):
             is_toc = slide_data.get("title", "").lower() == "table of contents"
             layout = prs.slide_layouts[2] if is_toc else prs.slide_layouts[1]
             slide = prs.slides.add_slide(layout)
-            
+
             # Apply content
             title_shape = slide.shapes.title
             title_shape.text = slide_data.get("title", "")
             _apply_font(title_shape, font_name, theme_info["title_font_size"], theme_colors["primary"], bold=True)
-            
+
             if not is_toc:
                 content_shape = slide.placeholders[1]
                 content_shape.text = slide_data.get("content", "")
@@ -632,110 +543,83 @@ def generate_ppt_doc(data):
                 toc_box = slide.shapes.add_textbox(left, top, width, height)
                 tf = toc_box.text_frame
                 tf.word_wrap = True
-                
+
                 content = slide_data.get("content", "")
                 for line in content.split('\n'):
                     if line.strip():
                         p = tf.add_paragraph()
-                        p.text = line.strip().replace('*', '').strip()
+                        p.text = line.strip()
                         p.alignment = PP_ALIGN.LEFT
                         for run in p.runs:
                             run.font.name = font_name
                             run.font.size = Pt(theme_info["content_font_size"])
                             run.font.color.rgb = theme_colors["text"]
-        
+
         # Generate final filename
         downloads_path = os.path.expanduser("~/Downloads")
         os.makedirs(downloads_path, exist_ok=True)
-        
+
         title = data.get("title", "Untitled").strip()
         clean_title = "".join(c for c in title if c.isalnum() or c.isspace())
         clean_title = clean_title.replace(" ", "_")[:30]
         timestamp = datetime.now().strftime("%Y%m%d_%H%M")
         filename = f"{clean_title}_{timestamp}.pptx"
         final_filepath = os.path.join(downloads_path, filename)
-        
+
         # Save to final location
         prs.save(final_filepath)
-        
+
         # Apply animations only to the final file
         if "animation" in theme_info["elements"]:
-            # Initialize PowerPoint once for all animations
             try:
                 comtypes.CoInitialize()
                 powerpoint = comtypes.client.CreateObject("PowerPoint.Application")
                 powerpoint.DisplayAlerts = 0
                 powerpoint.Visible = 0
-                
+
                 # Open the final presentation
                 presentation = powerpoint.Presentations.Open(
                     final_filepath,
                     WithWindow=0,
                     ReadOnly=0
                 )
-                
+
                 theme_animations = {
                     "Creative": {"title": "zoom", "content": "float"},
                     "Corporate": {"title": "fly_in", "content": "fade"},
                     "Modern": {"title": "float", "content": "zoom"},
                     "Elegant": {"title": "fade", "content": "fly_in"}
                 }
-                
+
                 animations = theme_animations.get(theme_name, {})
                 if animations:
-                    # Apply animations to all slides at once
-                    for idx in range(len(slides_data) + 1):  # +1 for title slide
-                        try:
-                            slide = presentation.Slides.Item(idx + 1)
-                            if idx == 0:  # Title slide
-                                shape = slide.Shapes.Item(1)
-                                animation = shape.AnimationSettings
-                                animation.Animate = -1
-                                animation.EntryEffect = 0x0E  # bounce/zoom
-                            else:  # Content slides
-                                if animations.get("title"):
-                                    shape = slide.Shapes.Item(1)
-                                    animation = shape.AnimationSettings
-                                    animation.Animate = -1
-                                    animation.EntryEffect = animation_effects.get(animations["title"], 0x17)
-                                
-                                if animations.get("content") and not slides_data[idx-1].get("title", "").lower() == "table of contents":
-                                    if slide.Shapes.Count > 1:
-                                        shape = slide.Shapes.Item(2)
-                                        animation = shape.AnimationSettings
-                                        animation.Animate = -1
-                                        animation.EntryEffect = animation_effects.get(animations["content"], 0x17)
-                        except Exception as e:
-                            print(f"Error applying animation to slide {idx + 1}: {str(e)}")
-                            continue
-                
-                # Save and close
+                    for idx, slide in enumerate(presentation.Slides):
+                        if idx == 0:  # Title slide
+                            shape = slide.Shapes.Title
+                            _apply_text_box_animation_with_pywin(final_filepath, idx, shape.ZOrderPosition - 1, animations.get("title", "fade"))
+                        else:  # Content slides
+                            for shape in slide.Shapes:
+                                if shape.HasTextFrame:
+                                    _apply_text_box_animation_with_pywin(final_filepath, idx, shape.ZOrderPosition - 1, animations.get("content", "fade"))
+
                 presentation.Save()
                 presentation.Close()
-                
+
             except Exception as e:
-                print(f"Error applying animations: {str(e)}")
+                print(f"Animation error: {str(e)}")
             finally:
                 if powerpoint:
-                    try:
-                        powerpoint.Quit()
-                    except:
-                        pass
-                try:
-                    comtypes.CoUninitialize()
-                except:
-                    pass
-        
+                    powerpoint.Quit()
+                comtypes.CoUninitialize()
+
         return final_filepath
-        
+
     except Exception as e:
         print(f"Error generating presentation: {str(e)}")
         raise
     finally:
-        # Clean up temp files
         for temp_file in temp_files:
             try:
-                if os.path.exists(temp_file):
-                    os.unlink(temp_file)
-            except:
-                pass
+                os.remove(temp_file)
+            except Exception as e:
+                print(f"Error cleaning up temp file: {str(e)}")

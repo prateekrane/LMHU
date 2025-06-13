@@ -239,6 +239,16 @@ class DetailScreen:
         # Add loading overlay reference
         self.loading_overlay = None
 
+        # Initialize document style variable
+        self.doc_style_var = tk.StringVar(value="Professional")  # Initialize doc_style_var
+
+        # Ensure page_size_var is initialized in the constructor
+        self.page_size_var = tk.StringVar(value="A4")
+        self.page_size_var.set("A4")
+
+        # Ensure alignment_var is initialized in the constructor
+        self.alignment_var = tk.StringVar(value="None")
+
     def _create_ppt_options(self):
         # Options frame
         options_frame = tk.LabelFrame(
@@ -401,8 +411,8 @@ class DetailScreen:
             **label_style
         ).grid(row=0, column=2, padx=(0, 10), pady=5, sticky="e")
         
-        self.font_var = tk.StringVar(value="Calibri")
-        fonts = ["Calibri", "Arial", "Times New Roman", "Georgia", "Verdana"]
+        self.font_var = tk.StringVar(value="None")
+        fonts = ["None", "Calibri", "Arial", "Times New Roman", "Georgia", "Verdana"]
         self.font_combo = ttk.Combobox(
             options_frame,
             textvariable=self.font_var,
@@ -422,6 +432,8 @@ class DetailScreen:
         ).grid(row=1, column=0, padx=(0, 10), pady=5, sticky="e")
         
         self.page_size_var = tk.StringVar(value="A4")
+        # Ensure page_size_var is initialized in the constructor
+        self.page_size_var.set("A4")
         page_sizes = ["A4", "Letter", "Legal", "A3", "A5"]
         self.page_size_combo = ttk.Combobox(
             options_frame,
@@ -440,8 +452,8 @@ class DetailScreen:
             **label_style
         ).grid(row=1, column=2, padx=(0, 10), pady=5, sticky="e")
         
-        self.alignment_var = tk.StringVar(value="Left")
-        alignments = ["Left", "Center", "Right", "Justify", "Distribute"]
+        self.alignment_var = tk.StringVar(value="None")
+        alignments = ["None", "Left", "Center", "Right", "Justify", "Distribute"]
         self.alignment_combo = ttk.Combobox(
             options_frame,
             textvariable=self.alignment_var,
@@ -596,10 +608,11 @@ class DetailScreen:
             # Restore logging level
             logging.getLogger().setLevel(logging.INFO)
             
-            # Show success message and hide overlay
+            # Show success message and reset UI
             self.root.after(0, self._hide_loading_overlay)
             self.root.after(0, lambda: self.generate_btn.configure(state="normal"))
             self.root.after(0, lambda: messagebox.showinfo("Success", f"Document generated successfully!\nSaved at: {path}"))
+            self.root.after(0, self._reset_ui)
             
         except Exception as e:
             # Restore stdout in case of error
@@ -748,6 +761,39 @@ For Word:
 For PPT:
 {{"title": ..., "subtitle": ..., "slides": [{{"title": ..., "content": ...}}, ...]}}
 """
+
+    def _reset_ui(self):
+        """Reset all UI fields to their default values."""
+        self.prompt_text.delete("1.0", tk.END)
+        self.prompt_text.insert("1.0", "Enter your document requirements here...")
+        self.prompt_text.config(fg="#666666")
+
+        # Reset Word-specific fields if they exist
+        if hasattr(self, 'doc_style_var'):
+            self.doc_style_var.set("Professional")
+        if hasattr(self, 'font_var'):
+            self.font_var.set("None")
+        if hasattr(self, 'page_size_var'):
+            self.page_size_var.set("A4")
+        if hasattr(self, 'alignment_var'):
+            self.alignment_var.set("None")
+        if hasattr(self, 'page_num_var'):
+            self.page_num_var.set(True)
+        if hasattr(self, 'header_var'):
+            self.header_var.set(True)
+        if hasattr(self, 'footer_var'):
+            self.footer_var.set(True)
+
+        # Reset PowerPoint-specific fields if they exist
+        if hasattr(self, 'slide_count'):
+            self.slide_count.set(5)
+        if hasattr(self, 'theme_var'):
+            self.theme_var.set("Professional")
+        if hasattr(self, 'color_scheme_var'):
+            self.color_scheme_var.set("Default")
+        if hasattr(self, 'notes_var'):
+            self.notes_var.set(True)
+
 
 def create_detail_screen(root, doc_type):
     # Clear existing widgets

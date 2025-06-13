@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "Test Document Style Application",
+			"command": "python",
+			"args": [
+				"-m",
+				"core.generator_word"
+			],
+			"problemMatcher": [],
+			"isBackground": false
+		}
+	]
+}
